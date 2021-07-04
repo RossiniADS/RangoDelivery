@@ -1,0 +1,19 @@
+﻿using RangoDelivery.Dominio.Enumerados;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RangoDelivery.Dominio.Entidades
+{
+    public class TipoPagamento
+    {
+        public int Id { get; set; }
+        public DateTime Data { get; set; }
+        public bool Retirar { get; set; }
+        public TipoFormaPagamento FormaPagamento { get; set; }
+        public int ClienteId { get; set; }
+        public int VendaId { get; set; }
+    }
+}
