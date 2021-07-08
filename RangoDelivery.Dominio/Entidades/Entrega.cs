@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RangoDelivery.Dominio.Entidades
 {
-    public class Entrega
+    public class Entrega : Entidade
     {
         public int Id { get; set; }
         public bool Ativo { get; set; }
@@ -14,5 +14,10 @@ namespace RangoDelivery.Dominio.Entidades
         public int BairroId { get; set; }
         public int CidadeId { get; set; }
         public int EmpresaId { get; set; }
+
+        public override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace RangoDelivery.Dominio.Entidades
 {
-    public class Cliente
-    {
+    public class Cliente : Entidade
+    { 
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
@@ -18,5 +18,16 @@ namespace RangoDelivery.Dominio.Entidades
         public string UrlFoto { get; set; }
         public ICollection<Cliente_has_endereco> Cliente_Has_Enderecos { get; set; }
         public ICollection<TipoPagamento> TipoPagamentos { get; set; }
+
+        public override void Validate()
+        {
+            LimparMensagensValidacao();
+
+            if (!Senha.Any())
+                AdicionarCritica("Senha não pode ficar vazio");
+            if (string.IsNullOrEmpty(Nome))
+                AdicionarCritica("Critica - NOME DEVE SER PREENCHIDO");
+
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RangoDelivery.Dominio.Entidades
 {
-    public class Empresa
+    public class Empresa : Entidade
     {
         public int Id { get; set; }
         public string Cnpj { get; set; }
@@ -23,5 +23,9 @@ namespace RangoDelivery.Dominio.Entidades
         public ICollection<Avaliacao> Avaliacoes { get; set; }
         public ICollection<Pedido> Pedidos { get; set; }
 
+        public override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RangoDelivery.Dominio.Entidades
 {
-    public class TipoPagamento
+    public class TipoPagamento : Entidade
     {
         public int Id { get; set; }
         public DateTime Data { get; set; }
@@ -15,5 +15,10 @@ namespace RangoDelivery.Dominio.Entidades
         public TipoFormaPagamento FormaPagamento { get; set; }
         public int ClienteId { get; set; }
         public int VendaId { get; set; }
+
+        public override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

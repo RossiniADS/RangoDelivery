@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace RangoDelivery.Dominio.Entidades
 {
-    public class Categoria_has_empresa
+    public class Categoria_has_empresa : Entidade
     {
         public int Id { get; set; }
         public int CategoriaId { get; set; }
         public int EmpresaId { get; set; }
+
+        public override void Validate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
