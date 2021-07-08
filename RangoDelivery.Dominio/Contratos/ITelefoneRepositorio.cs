@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RangoDelivery.Dominio.Contratos
 {
-    public interface ITelefone : IBaseRepositorio<Telefone>
+    public interface ITelefoneRepositorio : IBaseRepositorio<Telefone>
     {
     }
 }
