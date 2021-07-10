@@ -1,0 +1,7 @@
+{
+  "ConnectionStrings": {
+    "SqlServerConnection": "",
+    //"MySqlConnection": "server=localhost;uid=root;pwd=1234;database=RangoDeliveryDB"
+    "RangoDeliveryDB": "server=localhost;uid=root;pwd=1234;database=RangoDeliveryDB"
+  }
+}
