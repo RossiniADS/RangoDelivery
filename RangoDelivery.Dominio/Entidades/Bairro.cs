@@ -12,8 +12,9 @@ namespace RangoDelivery.Dominio.Entidades
         public string Nome { get; set; }
         public string Rua { get; set; }
         public int CidadeId { get; set; }
-        public ICollection<Endereco> Enderecos { get; set; }
-        public ICollection<Entrega> Entregas { get; set; }
+        public virtual Cidade Cidade { get; set; }
+        public virtual ICollection<Endereco> Enderecos { get; set; }
+        public virtual ICollection<Entrega> Entregas { get; set; }
 
         public override void Validate()
         {

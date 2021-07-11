@@ -12,7 +12,9 @@ namespace RangoDelivery.Dominio.Entidades
         public float Nota { get; set; }
         public string Comentario { get; set; }
         public int Venda_has_pedidoId { get; set; }
+        public virtual Venda_has_pedido Venda_Has_Pedido { get; set; }
         public int EmpresaId { get; set; }
+        public virtual Empresa Empresa { get; set; }
 
         public override void Validate()
         {

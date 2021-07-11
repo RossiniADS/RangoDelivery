@@ -27,7 +27,7 @@ namespace RangoDelivery.web
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
 
             var connectionString = Configuration.GetConnectionString("RangoDeliveryDB");
-            services.AddDbContext<RangoDeliveryContexto>(option => option.UseMySql(connectionString, m =>
+            services.AddDbContext<RangoDeliveryContexto>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, m =>
                                                                     m.MigrationsAssembly("RangoDelivery.Repositorio")));
 
             // In production, the Angular files will be served from this directory

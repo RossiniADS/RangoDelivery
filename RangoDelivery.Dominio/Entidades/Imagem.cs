@@ -12,6 +12,7 @@ namespace RangoDelivery.Dominio.Entidades
         public string Descricao { get; set; }
         public string ImgUrl { get; set; }
         public int PedidoId { get; set; }
+        public virtual Pedido Pedido { get; set; }
 
         public override void Validate()
         {

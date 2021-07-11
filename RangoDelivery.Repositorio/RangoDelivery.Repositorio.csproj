@@ -13,8 +13,4 @@
     <ProjectReference Include="..\RangoDelivery.Dominio\RangoDelivery.Dominio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Config\" />
-  </ItemGroup>
-
 </Project>

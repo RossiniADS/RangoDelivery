@@ -12,8 +12,9 @@ namespace RangoDelivery.Dominio.Entidades
         public string Cep { get; set; }
         public string Complemento { get; set; }
         public int BairroId { get; set; }
-        public ICollection<Cliente_has_endereco> Cliente_has_enderecos { get; set; }
-        public ICollection<Empresa> Empresas { get; set; }
+        public virtual Bairro Bairro { get; set; }
+        public virtual ICollection<Cliente_has_endereco> Cliente_has_enderecos { get; set; }
+        public virtual ICollection<Empresa> Empresas { get; set; }
 
         public override void Validate()
         {

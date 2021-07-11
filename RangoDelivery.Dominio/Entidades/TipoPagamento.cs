@@ -14,7 +14,8 @@ namespace RangoDelivery.Dominio.Entidades
         public bool Retirar { get; set; }
         public TipoFormaPagamento FormaPagamento { get; set; }
         public int ClienteId { get; set; }
-        public int VendaId { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual Venda Venda { get; set; }
 
         public override void Validate()
         {

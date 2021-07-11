@@ -10,8 +10,8 @@ namespace RangoDelivery.Dominio.Entidades
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public ICollection<Categoria_has_empresa> Categoria_has_empresas { get; set; }
-        public ICollection<Pedido> Pedidos { get; set; }
+        public virtual ICollection<Categoria_has_empresa> Categoria_has_empresas { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
 
         public override void Validate()
         {

@@ -12,6 +12,7 @@ namespace RangoDelivery.Dominio.Entidades
         public string Ddd { get; set; }
         public string Numero { get; set; }
         public int EmpresaId { get; set; }
+        public virtual Empresa Empresa { get; set; }
 
         public override void Validate()
         {

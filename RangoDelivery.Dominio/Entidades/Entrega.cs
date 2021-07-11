@@ -10,10 +10,13 @@ namespace RangoDelivery.Dominio.Entidades
     {
         public int Id { get; set; }
         public bool Ativo { get; set; }
-        public decimal Frete  { get; set; }
+        public decimal Frete { get; set; }
         public int BairroId { get; set; }
+        public virtual Bairro Bairro { get; set; }
         public int CidadeId { get; set; }
+        public virtual Cidade Cidade { get; set; }
         public int EmpresaId { get; set; }
+        public virtual Empresa Empresa { get; set; }
 
         public override void Validate()
         {

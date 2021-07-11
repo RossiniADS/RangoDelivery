@@ -15,8 +15,8 @@ namespace RangoDelivery.Dominio.Entidades
         public int Quantidade { get; set; }
         public StatusEntrega EntregaStatus { get; set; }
         public StatusPagamento PagamentoStatus { get; set; }
-        public ICollection<TipoPagamento> TipoPagamentos { get; set; }
-        public ICollection<Venda_has_pedido> Venda_has_pedidos { get; set; }
+        public virtual ICollection<TipoPagamento> TipoPagamentos { get; set; }
+        public virtual ICollection<Venda_has_pedido> Venda_has_pedidos { get; set; }
 
         public override void Validate()
         {

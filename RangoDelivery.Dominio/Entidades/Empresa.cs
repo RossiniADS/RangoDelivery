@@ -17,11 +17,12 @@ namespace RangoDelivery.Dominio.Entidades
         public string NumeroEndereco{ get; set; }
         public string UrlFoto { get; set; }
         public int EnderecoId { get; set; }
-        public ICollection<Categoria_has_empresa> Categoria_has_empresas { get; set; }
-        public ICollection<Telefone> Telefones { get; set; }
-        public ICollection<Entrega> Entregas { get; set; }
-        public ICollection<Avaliacao> Avaliacoes { get; set; }
-        public ICollection<Pedido> Pedidos { get; set; }
+        public virtual Endereco Endereco { get; set; }
+        public virtual ICollection<Categoria_has_empresa> Categoria_has_empresas { get; set; }
+        public virtual ICollection<Telefone> Telefones { get; set; }
+        public virtual ICollection<Entrega> Entregas { get; set; }
+        public virtual ICollection<Avaliacao> Avaliacoes { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
 
         public override void Validate()
         {

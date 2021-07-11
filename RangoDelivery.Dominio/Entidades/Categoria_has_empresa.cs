@@ -10,8 +10,9 @@ namespace RangoDelivery.Dominio.Entidades
     {
         public int Id { get; set; }
         public int CategoriaId { get; set; }
+        public virtual Categoria Categoria { get; set; }
         public int EmpresaId { get; set; }
-
+        public virtual Empresa Empresa { get; set; }
         public override void Validate()
         {
             throw new NotImplementedException();

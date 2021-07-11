@@ -16,8 +16,8 @@ namespace RangoDelivery.Dominio.Entidades
         public string Celular { get; set; }
         public DateTime DataNascimento { get; set; }
         public string UrlFoto { get; set; }
-        public ICollection<Cliente_has_endereco> Cliente_Has_Enderecos { get; set; }
-        public ICollection<TipoPagamento> TipoPagamentos { get; set; }
+        public virtual ICollection<Cliente_has_endereco> Cliente_Has_Enderecos { get; set; }
+        public virtual ICollection<TipoPagamento> TipoPagamentos { get; set; }
 
         public override void Validate()
         {

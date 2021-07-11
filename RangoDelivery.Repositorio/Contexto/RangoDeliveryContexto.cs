@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RangoDelivery.Dominio.Entidades;
+using RangoDelivery.Repositorio.Config;
 
 namespace RangoDelivery.Repositorio.Contexto
 {
@@ -26,6 +27,30 @@ namespace RangoDelivery.Repositorio.Contexto
         public RangoDeliveryContexto(DbContextOptions options) : base(options)
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // classes de mapeamento aqui...
+            modelBuilder.ApplyConfiguration(new AvaliacaoConfiguration());
+            modelBuilder.ApplyConfiguration(new BairroConfiguration());
+            modelBuilder.ApplyConfiguration(new Categoria_has_empresaConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoriaConfiguration());
+            modelBuilder.ApplyConfiguration(new CidadeConfiguration());
+            modelBuilder.ApplyConfiguration(new Cliente_has_enderecoConfiguration());
+            modelBuilder.ApplyConfiguration(new ClienteConfiguration());
+            modelBuilder.ApplyConfiguration(new EmpresaConfiguration());
+            modelBuilder.ApplyConfiguration(new EnderecoConfiguration());
+            modelBuilder.ApplyConfiguration(new EntregaConfiguration());
+            modelBuilder.ApplyConfiguration(new EstadoConfiguration());
+            modelBuilder.ApplyConfiguration(new ImagemConfiguration());
+            modelBuilder.ApplyConfiguration(new PedidoConfiguration());
+            modelBuilder.ApplyConfiguration(new TelefoneConfiguration());
+            modelBuilder.ApplyConfiguration(new TipoPagamentoConfiguration());
+            modelBuilder.ApplyConfiguration(new Venda_has_pedidoConfiguration());
+            modelBuilder.ApplyConfiguration(new VendaConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
 
     }

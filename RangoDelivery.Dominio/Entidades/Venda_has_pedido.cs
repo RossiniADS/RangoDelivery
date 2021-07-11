@@ -12,8 +12,10 @@ namespace RangoDelivery.Dominio.Entidades
         public decimal Valor { get; set; }
         public int Quantidade { get; set; }
         public int VendaId { get; set; }
+        public virtual Venda Venda { get; set; }
         public int PedidoId { get; set; }
-        public ICollection<Avaliacao> Avaliacoes { get; set; }
+        public virtual Pedido Pedido { get; set; }
+        public virtual ICollection<Avaliacao> Avaliacoes { get; set; }
 
         public override void Validate()
         {
