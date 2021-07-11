@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RangoDelivery.Repositorio.Contexto;
+using System;
 
 namespace RangoDelivery.web
 {
@@ -27,8 +28,8 @@ namespace RangoDelivery.web
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
 
             var connectionString = Configuration.GetConnectionString("RangoDeliveryDB");
-            services.AddDbContext<RangoDeliveryContexto>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, m =>
-                                                                    m.MigrationsAssembly("RangoDelivery.Repositorio")));
+            services.AddDbContext<RangoDeliveryContexto>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 24)), m => m.MigrationsAssembly("RangoDelivery.Repositorio")));
+
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
