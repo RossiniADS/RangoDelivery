@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RangoDelivery.Dominio.Entidades;
+using RangoDelivery.Dominio.Enumerados;
 using RangoDelivery.Repositorio.Config;
+using System;
 
 namespace RangoDelivery.Repositorio.Contexto
 {
@@ -49,6 +51,75 @@ namespace RangoDelivery.Repositorio.Contexto
             modelBuilder.ApplyConfiguration(new TipoPagamentoConfiguration());
             modelBuilder.ApplyConfiguration(new Venda_has_pedidoConfiguration());
             modelBuilder.ApplyConfiguration(new VendaConfiguration());
+
+
+            modelBuilder.Entity<Cliente>().HasData(
+                new Cliente()
+                {
+                    Id = 1,
+                    Nome = "Rossini G. R. Alves",
+                    Email = "rossini@gmail.com",
+                    Celular = "(12)981264328",
+                    DataNascimento = Convert.ToDateTime("08/03/1996"),
+                    Senha = "08031996",
+                    Sexo = 'M',
+                    UrlFoto = "url"
+                },
+                new Cliente()
+                {
+                    Id = 2,
+                    Nome = "Renan",
+                    Email = "renan@gmail.com",
+                    Celular = "(12)981785985",
+                    DataNascimento = Convert.ToDateTime("01/02/1998"),
+                    Senha = "08031996",
+                    Sexo = 'M',
+                    UrlFoto = "url"
+                });
+            modelBuilder.Entity<Empresa>().HasData(
+                new Empresa()
+                {
+                    Id = 1,
+                    Cnpj = "1458798568",
+                    RazaoSocial = "Alimentos LTDA",
+                    NomeFantasia = "Rango delivery",
+                    Email = "rango@gmail.com",
+                    Senha = "08031996",
+                    NumeroEndereco = "98",
+                    UrlFoto = "url",
+                    EnderecoId = 1
+                });
+            modelBuilder.Entity<Endereco>().HasData(
+                new Endereco()
+                {
+                    Id = 1,
+                    Cep = "12603100",
+                    Complemento = "casa",
+                    BairroId = 1
+                });
+            modelBuilder.Entity<Bairro>().HasData(
+                new Bairro()
+                {
+                    Id = 1,
+                    Rua = "Rua jovino balbino da silva",
+                    Nome = "Vila nunes",
+                    CidadeId = 1
+                });
+            modelBuilder.Entity<Cidade>().HasData(
+                new Cidade()
+                {
+                    Id = 1,
+                    Nome = "Lorena",
+                    EstadoId = 1
+                });
+            modelBuilder.Entity<Estado>().HasData(
+                new Estado()
+                {
+                    Id = 1,
+                    Nome = "São Paulo",
+                    Uf = "SP"
+                });
+
 
             base.OnModelCreating(modelBuilder);
         }

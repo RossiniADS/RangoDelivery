@@ -16,7 +16,7 @@ namespace RangoDelivery.Repositorio.Config
             builder.Property(c => c.Senha).IsRequired().HasMaxLength(400).HasColumnType("text");
             builder.Property(c => c.Sexo).IsRequired().HasMaxLength(1).HasColumnType("char");
             builder.Property(c => c.Celular).IsRequired().HasMaxLength(45);
-            builder.Property(c => c.DataNascimento).IsRequired();
+            builder.Property(c => c.DataNascimento).IsRequired().HasColumnType("Date");
             builder.Property(c => c.UrlFoto).IsRequired().HasMaxLength(255);
 
             builder.HasMany(c => c.Cliente_Has_Enderecos).WithOne(c => c.Cliente);

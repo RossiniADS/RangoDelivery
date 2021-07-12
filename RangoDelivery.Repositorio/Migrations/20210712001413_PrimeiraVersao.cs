@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RangoDelivery.Repositorio.Migrations
 {
-    public partial class PrimeiraVersaoBase : Migration
+    public partial class PrimeiraVersao : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,7 +42,7 @@ namespace RangoDelivery.Repositorio.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Celular = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataNascimento = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataNascimento = table.Column<DateTime>(type: "Date", nullable: false),
                     UrlFoto = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
@@ -459,6 +459,41 @@ namespace RangoDelivery.Repositorio.Migrations
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "Clientes",
+                columns: new[] { "Id", "Celular", "DataNascimento", "Email", "Nome", "Senha", "Sexo", "UrlFoto" },
+                values: new object[] { 1, "(12)981264328", new DateTime(1996, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "rossini@gmail.com", "Rossini G. R. Alves", "08031996", "M", "url" });
+
+            migrationBuilder.InsertData(
+                table: "Clientes",
+                columns: new[] { "Id", "Celular", "DataNascimento", "Email", "Nome", "Senha", "Sexo", "UrlFoto" },
+                values: new object[] { 2, "(12)981785985", new DateTime(1998, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "renan@gmail.com", "Renan", "08031996", "M", "url" });
+
+            migrationBuilder.InsertData(
+                table: "Estados",
+                columns: new[] { "Id", "Nome", "Uf" },
+                values: new object[] { 1, "São Paulo", "SP" });
+
+            migrationBuilder.InsertData(
+                table: "Cidades",
+                columns: new[] { "Id", "EstadoId", "Nome" },
+                values: new object[] { 1, 1, "Lorena" });
+
+            migrationBuilder.InsertData(
+                table: "Bairros",
+                columns: new[] { "Id", "CidadeId", "Nome", "Rua" },
+                values: new object[] { 1, 1, "Vila nunes", "Rua jovino balbino da silva" });
+
+            migrationBuilder.InsertData(
+                table: "Enderecos",
+                columns: new[] { "Id", "BairroId", "Cep", "Complemento" },
+                values: new object[] { 1, 1, "12603100", "casa" });
+
+            migrationBuilder.InsertData(
+                table: "Empresas",
+                columns: new[] { "Id", "Cnpj", "Email", "EnderecoId", "NomeFantasia", "NumeroEndereco", "RazaoSocial", "Senha", "UrlFoto" },
+                values: new object[] { 1, "1458798568", "rango@gmail.com", 1, "Rango delivery", "98", "Alimentos LTDA", "08031996", "url" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Avaliacoes_EmpresaId",

@@ -1,4 +1,5 @@
 ﻿using RangoDelivery.Dominio.Contratos;
+using RangoDelivery.Repositorio.Contexto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,38 +10,43 @@ namespace RangoDelivery.Repositorio.Repositorios
 {
     public class BaseRepositorio<TEntity> : IBaseRepositorio<TEntity> where TEntity : class
     {
-        public BaseRepositorio()
-        {
+        protected readonly RangoDeliveryContexto RangoDeliveryContexto;
 
+        public BaseRepositorio(RangoDeliveryContexto rangoDeliveryContexto)
+        {
+            RangoDeliveryContexto = rangoDeliveryContexto; 
         }
 
         public void Adicionar(TEntity entity)
         {
-            throw new NotImplementedException();
+            RangoDeliveryContexto.Set<TEntity>().Add(entity);
+            RangoDeliveryContexto.SaveChanges();
         }
 
         public void Atualizar(TEntity entity)
         {
-            throw new NotImplementedException();
+            RangoDeliveryContexto.Set<TEntity>().Update(entity);
+            RangoDeliveryContexto.SaveChanges();
         }
 
         public TEntity ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return RangoDeliveryContexto.Set<TEntity>().Find(id);
         }
 
         public IEnumerable<TEntity> ObterTodos()
         {
-            throw new NotImplementedException();
+            return RangoDeliveryContexto.Set<TEntity>().ToList();
         }
 
         public void Remover(TEntity entity)
         {
-            throw new NotImplementedException();
+            RangoDeliveryContexto.Set<TEntity>().Remove(entity);
+            RangoDeliveryContexto.SaveChanges();
         }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            RangoDeliveryContexto.Dispose();
         }
     }
 }

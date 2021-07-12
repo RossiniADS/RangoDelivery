@@ -9,8 +9,8 @@ using RangoDelivery.Repositorio.Contexto;
 namespace RangoDelivery.Repositorio.Migrations
 {
     [DbContext(typeof(RangoDeliveryContexto))]
-    [Migration("20210711214209_PrimeiraVersaoBase")]
-    partial class PrimeiraVersaoBase
+    [Migration("20210712001413_PrimeiraVersao")]
+    partial class PrimeiraVersao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,6 +72,15 @@ namespace RangoDelivery.Repositorio.Migrations
                     b.HasIndex("CidadeId");
 
                     b.ToTable("Bairros");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CidadeId = 1,
+                            Nome = "Vila nunes",
+                            Rua = "Rua jovino balbino da silva"
+                        });
                 });
 
             modelBuilder.Entity("RangoDelivery.Dominio.Entidades.Categoria", b =>
@@ -130,6 +139,14 @@ namespace RangoDelivery.Repositorio.Migrations
                     b.HasIndex("EstadoId");
 
                     b.ToTable("Cidades");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EstadoId = 1,
+                            Nome = "Lorena"
+                        });
                 });
 
             modelBuilder.Entity("RangoDelivery.Dominio.Entidades.Cliente", b =>
@@ -144,7 +161,7 @@ namespace RangoDelivery.Repositorio.Migrations
                         .HasColumnType("varchar(45)");
 
                     b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("Date");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -174,6 +191,30 @@ namespace RangoDelivery.Repositorio.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clientes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Celular = "(12)981264328",
+                            DataNascimento = new DateTime(1996, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "rossini@gmail.com",
+                            Nome = "Rossini G. R. Alves",
+                            Senha = "08031996",
+                            Sexo = "M",
+                            UrlFoto = "url"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Celular = "(12)981785985",
+                            DataNascimento = new DateTime(1998, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "renan@gmail.com",
+                            Nome = "Renan",
+                            Senha = "08031996",
+                            Sexo = "M",
+                            UrlFoto = "url"
+                        });
                 });
 
             modelBuilder.Entity("RangoDelivery.Dominio.Entidades.Cliente_has_endereco", b =>
@@ -259,6 +300,20 @@ namespace RangoDelivery.Repositorio.Migrations
                     b.HasIndex("EnderecoId");
 
                     b.ToTable("Empresas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Cnpj = "1458798568",
+                            Email = "rango@gmail.com",
+                            EnderecoId = 1,
+                            NomeFantasia = "Rango delivery",
+                            NumeroEndereco = "98",
+                            RazaoSocial = "Alimentos LTDA",
+                            Senha = "08031996",
+                            UrlFoto = "url"
+                        });
                 });
 
             modelBuilder.Entity("RangoDelivery.Dominio.Entidades.Endereco", b =>
@@ -285,6 +340,15 @@ namespace RangoDelivery.Repositorio.Migrations
                     b.HasIndex("BairroId");
 
                     b.ToTable("Enderecos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BairroId = 1,
+                            Cep = "12603100",
+                            Complemento = "casa"
+                        });
                 });
 
             modelBuilder.Entity("RangoDelivery.Dominio.Entidades.Entrega", b =>
@@ -338,6 +402,14 @@ namespace RangoDelivery.Repositorio.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Estados");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nome = "São Paulo",
+                            Uf = "SP"
+                        });
                 });
 
             modelBuilder.Entity("RangoDelivery.Dominio.Entidades.Imagem", b =>
