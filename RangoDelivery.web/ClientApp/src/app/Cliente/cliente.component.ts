@@ -1,7 +1,7 @@
 import { Component } from "@angular/core"
 
 @Component({
-  selector: "cliente",
+  selector: "app-cliente",
   template: "<html><body>{{obterNome()}}</body></html>",
 
 })
@@ -11,6 +11,6 @@ export class ClienteComponent { //Nome das classes começando com maiusculo por 
   public email: string;
 
   public obterNome(): string {
-    return this.nome;
+    return "Samsung";
   }
 }
