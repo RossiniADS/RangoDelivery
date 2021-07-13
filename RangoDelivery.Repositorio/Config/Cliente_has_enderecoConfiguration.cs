@@ -12,9 +12,6 @@ namespace RangoDelivery.Repositorio.Config
             builder.Property(c => c.Numero).IsRequired().HasMaxLength(45);
             builder.Property(c => c.Principal).IsRequired();
             builder.Property(c => c.Descricao).IsRequired().HasMaxLength(100);
-            //builder.Property(c => c.ClienteId).IsRequired();
-            //builder.Property(c => c.EnderecoId).IsRequired();
-
         }
     }
 }
