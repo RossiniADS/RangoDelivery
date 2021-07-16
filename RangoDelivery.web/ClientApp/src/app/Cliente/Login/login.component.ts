@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Cliente } from "../../model/cliente";
 
 @Component({
   selector: "app-login",
@@ -6,6 +7,33 @@ import { Component } from "@angular/core";
   styleUrls: ["./login.component.css"] //[] pq é como se fosse lista
 })
 export class LoginComponent {
-  public email = "rossini@hotmail.com";
-  public enderecoImagem = "https://static.wikia.nocookie.net/zelda/images/https://img.ibxk.com.br/2020/01/30/30021141299110.jpg?w=1120&h=420&mode=crop&scale=both/57/Breath_of_the_Wild_Artwork_Link_%28Official_Artwork%29.png/revision/latest/scale-to-width-down/535?cb=20160623185226";
+  public cliente = new Cliente();
+  public usuarioAutenticado: boolean;
+  //public usuarios = ["usuario1", "usuario2", "usuario3", "usuario4"]; *ngFor="let us of usuarios" {{us}}
+  constructor() {
+    this.cliente = new Cliente();
+  }
+
+  entrar() {
+
+  }
+
+  //entrar() {
+  //  if (this.cliente.email == "rossini.g.r.alves@gmail.com" && this.cliente.senha == "1234") {  //*ngIf="usuarioAutenticado"
+  //    this.usuarioAutenticado = true;
+  //  }
+  //}
+
+  //entrar() {
+  //  alert(this.email + " - " + this.senha); [(ngModel)]="senha"
+  //}
+
+  /*entrar() {
+    alert(this.email); // apenas do componente para o template value="{{email}}"
+  }*/
+
+  /*on_keypress() {
+    alert('foi digitado no campo de email');
+  }*/
+
 }

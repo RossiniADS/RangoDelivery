@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\Cliente\cliente.component.ts" />
+    <None Remove="ClientApp\src\app\model\cliente.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,12 +42,17 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\Cliente\cliente.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\cliente.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Update="config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\assets\img\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

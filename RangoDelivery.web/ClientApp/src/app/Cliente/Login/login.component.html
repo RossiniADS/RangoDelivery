@@ -1,29 +1,25 @@
-<div id="login">
-  <h3 class="text-center text-white pt-5">Login form</h3>
-  <div class="container">
-    <div id="login-row" class="row justify-content-center align-items-center">
-      <div id="login-column" class="col-md-6">
-        <div id="login-box" class="col-md-12">
-          <form id="login-form" class="form" action="" method="post">
-            <h3 class="text-center text-info">Login</h3>
-            <div class="form-group">
-              <label for="username" class="text-info">Usuário ou email:</label><br>
-              <input type="text" name="username" id="username" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="password" class="text-info">Senha:</label><br>
-              <input type="text" name="password" id="password" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="remember-me" class="text-info"><span>Lembrar senha</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-              <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
-            </div>
-            <div id="register-link" class="text-right">
-              <a href="#" class="text-info">Cadastre-se aqui</a>
-            </div>
-          </form>
-        </div>
+<div class="text-center">
+  <form class="form-signin">
+    <img class="mb-4" src=".\assets\img\bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" [(ngModel)]="cliente.email">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" [(ngModel)]="cliente.senha">
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="entrar()">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
+    <div class="alert alert-primary" role="alert" *ngIf="usuarioAutenticado">
+      usuario autenticado!
+    </div>
+    <div class="alert alert-warning" role="alert">
+      <div *ngFor="let us of usuarios">
+        {{us}}
       </div>
     </div>
-  </div>
+  </form>
 </div>
