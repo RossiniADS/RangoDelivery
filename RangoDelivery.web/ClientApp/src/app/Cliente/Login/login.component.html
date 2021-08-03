@@ -1,11 +1,43 @@
 <div class="text-center">
   <form class="form-signin">
     <img class="mb-4" src=".\assets\img\bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" [(ngModel)]="cliente.email">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" [(ngModel)]="cliente.senha">
+    <h1 class="h3 mb-3 font-weight-normal">Por favor, logue-se</h1>
+
+    <label for="inputEmail" class="sr-only">Endereço de email</label>
+    <input type="email" id="inputEmail"
+           name="email" class="form-control"
+           [ngClass] = "{
+            'is-invalid':email.invalid && (email.dirty || email.touched),
+            'is-valid':email.valid && (email.dirty || email.touched)
+           }"
+           placeholder="Email address" [(ngModel)]="cliente.email"
+           #email="ngModel" email required />
+
+    <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">
+        Email deve ser preenchido!
+      </div>
+      <div *ngIf="email.errors.email">
+        Email não está no formato correto!
+      </div>
+    </div>
+
+    <label for="inputPassword" class="sr-only">Senha</label>
+    <input type="password" id="inputPassword"
+           name="password" class="form-control"
+            [ngClass] = "{
+            'is-invalid':senha.invalid && (senha.dirty || senha.touched),
+            'is-valid':senha.valid && (senha.dirty || senha.touched)
+           }"
+           placeholder="Password" [(ngModel)]="cliente.senha"
+           #senha="ngModel" required />
+
+    <div class="invalid-feedback" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
+      <div *ngIf="senha.errors.required">
+        Senha deve ser preenchido!
+      </div>
+    </div>
+
     <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
@@ -13,13 +45,15 @@
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="entrar()">Sign in</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
-    <div class="alert alert-primary" role="alert" *ngIf="usuarioAutenticado">
-      usuario autenticado!
+
+
+    <!--<div class="alert alert-primary" role="alert" *ngIf="usuarioAutenticado">
+    usuario autenticado!
+  </div>
+  <div class="alert alert-warning" role="alert">
+    <div *ngFor="let us of usuarios">
+      {{us}}
     </div>
-    <div class="alert alert-warning" role="alert">
-      <div *ngFor="let us of usuarios">
-        {{us}}
-      </div>
-    </div>
+  </div>-->
   </form>
 </div>

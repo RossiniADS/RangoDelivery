@@ -9,14 +9,17 @@ import { Cliente } from "../../model/cliente";
 export class LoginComponent {
   public cliente = new Cliente();
   public usuarioAutenticado: boolean;
+  public email = "";
+  public senha = "";
+
   //public usuarios = ["usuario1", "usuario2", "usuario3", "usuario4"]; *ngFor="let us of usuarios" {{us}}
   constructor() {
     this.cliente = new Cliente();
   }
 
-  entrar() {
+  //entrar() {
 
-  }
+  //}
 
   //entrar() {
   //  if (this.cliente.email == "rossini.g.r.alves@gmail.com" && this.cliente.senha == "1234") {  //*ngIf="usuarioAutenticado"
@@ -24,9 +27,9 @@ export class LoginComponent {
   //  }
   //}
 
-  //entrar() {
-  //  alert(this.email + " - " + this.senha); [(ngModel)]="senha"
-  //}
+  entrar() {
+    alert(this.cliente.email + " - " + this.cliente.senha); //[(ngModel)]="senha"
+  }
 
   /*entrar() {
     alert(this.email); // apenas do componente para o template value="{{email}}"
