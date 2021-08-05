@@ -10,7 +10,7 @@ using RangoDelivery.Dominio.Entidades;
 namespace RangoDelivery.web.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ClienteController : Controller
     {
         private readonly IClienteRepositorio _clienteRepositorio;
@@ -30,6 +30,24 @@ namespace RangoDelivery.web.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+
+        [HttpPost("VerificarCliente")]
+        public IActionResult VerificarCliente([FromBody] Cliente cliente)
+        {
+            try
+            {
+                if (cliente.Email == "rossini.g.r.alves@gmail.com" && cliente.Senha == "1234")
+                {
+                    return Ok(cliente);
+                }
+                return BadRequest("Cliente ou senha inválidos");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] Cliente cliente)
         {

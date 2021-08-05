@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Local } from "protractor/built/driverProviders";
 import { Cliente } from "../../model/cliente";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ClienteServico } from "../../serviços/cliente/cliente.servico";
+import { Subscriber } from "rxjs";
 
 @Component({
   selector: "app-login",
@@ -13,8 +15,9 @@ export class LoginComponent implements OnInit {
   public usuarioAutenticado: boolean;
   public returnUrl: string;
 
-  constructor(private router: Router, private activatedRouter: ActivatedRoute) {
-    
+  constructor(private router: Router, private activatedRouter: ActivatedRoute,
+    private clienteServico: ClienteServico) {
+
   }
 
   ngOnInit(): void {
@@ -23,9 +26,21 @@ export class LoginComponent implements OnInit {
   }
 
   entrar() {
-    if (this.cliente.email == "rossini.g.r.alves@gmail.com" && this.cliente.senha == "1234") {
-      sessionStorage.setItem("usuario-autenticado", "1");
-      this.router.navigate([this.returnUrl]);
-    }
+
+    this.clienteServico.verificaCliente(this.cliente)
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        err => {
+          console.log(err.error);
+        }
+      );
+
+
+    //if (this.cliente.email == "rossini.g.r.alves@gmail.com" && this.cliente.senha == "1234") {
+    //  sessionStorage.setItem("usuario-autenticado", "1");
+    //  this.router.navigate([this.returnUrl]);
+    //}
   }
 }
