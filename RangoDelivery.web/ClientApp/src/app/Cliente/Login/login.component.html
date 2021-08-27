@@ -44,6 +44,11 @@
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="entrar()">Sign in</button>
+
+    <div class="alert alert-danger" *ngIf="mensagem">
+      {{mensagem}}
+    </div>
+
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
 
 

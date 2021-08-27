@@ -29,10 +29,10 @@
             <a class="nav-link text-dark" [routerLink]="['/cliente']">Cliente</a>
           </li>
 
-          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="!usuarioLogado()">
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="!clienteLogado()">
             <a class="nav-link text-dark" [routerLink]="['/entrar']">Entrar</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="usuarioLogado()">
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="clienteLogado()">
             <a class="nav-item nav-link text-dark" [routerLink]='["/sair"]' (click)="sair()">Sair</a>
           </li>
         </ul>

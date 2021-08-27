@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   public cliente;
   public usuarioAutenticado: boolean;
   public returnUrl: string;
+  public mensagem: string;
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute,
     private clienteServico: ClienteServico) {
@@ -29,11 +30,28 @@ export class LoginComponent implements OnInit {
 
     this.clienteServico.verificaCliente(this.cliente)
       .subscribe(
-        data => {
-          console.log(data);
+        cliente_json => {
+          
+          //essa linha será executada no caso de retorno sem erros
+          /*
+          var clienteRetorno: Cliente;
+          clienteRetorno = data;
+          sessionStorage.setItem("cliente-autenticado", "1");
+          sessionStorage.setItem("email-cliente", clienteRetorno.email);
+          */
+
+          this.clienteServico.cliente = cliente_json;
+
+          if (this.returnUrl == null) {
+            this.router.navigate(['/']);
+          } else {
+            this.router.navigate([this.returnUrl]);
+          }
+
         },
         err => {
           console.log(err.error);
+          this.mensagem = err.error;
         }
       );
 
