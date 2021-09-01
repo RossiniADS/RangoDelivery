@@ -36,9 +36,11 @@ namespace RangoDelivery.web.Controllers
         {
             try
             {
-                if (cliente.Email == "rossini.g.r.alves@gmail.com" && cliente.Senha == "1234")
+                var clienteRetorno = _clienteRepositorio.Obter(cliente.Email, cliente.Senha);
+
+                if (clienteRetorno != null)
                 {
-                    return Ok(cliente);
+                    return Ok(clienteRetorno);
                 }
                 return BadRequest("Cliente ou senha inválidos");
             }

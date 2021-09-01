@@ -43,7 +43,11 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="entrar()">Sign in</button>
+    
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+    Entrar
+    </button>
 
     <div class="alert alert-danger" *ngIf="mensagem">
       {{mensagem}}

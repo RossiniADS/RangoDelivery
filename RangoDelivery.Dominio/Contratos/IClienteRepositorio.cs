@@ -9,6 +9,6 @@ namespace RangoDelivery.Dominio.Contratos
 {
     public interface IClienteRepositorio : IBaseRepositorio<Cliente>
     {
-
+        Cliente Obter(string email, string senha);
     }
 }

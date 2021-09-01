@@ -1,6 +1,7 @@
 ﻿using RangoDelivery.Dominio.Contratos;
 using RangoDelivery.Dominio.Entidades;
 using RangoDelivery.Repositorio.Contexto;
+using System.Linq;
 
 namespace RangoDelivery.Repositorio.Repositorios
 {
@@ -8,6 +9,11 @@ namespace RangoDelivery.Repositorio.Repositorios
     {
         public ClienteRepositorio(RangoDeliveryContexto rangoDeliveryContexto) : base(rangoDeliveryContexto)
         {
+        }
+
+        public Cliente Obter(string email, string senha)
+        {
+            return RangoDeliveryContexto.Clientes.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
     }
 }
