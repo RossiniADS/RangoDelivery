@@ -45,8 +45,20 @@ export class ClienteServico {
       senha: cliente.senha
     }
 
-    //this.baseURL = raiz do site que pode ser exemplo.: http://www.quickbuy.com/
-
     return this.http.post<Cliente>(this.baseURL + "api/cliente/VerificarCliente", body, { headers });
+  }
+  public cadastrarCliente(cliente: Cliente): Observable<Cliente> {
+
+    const headers = new HttpHeaders().set('content-type', 'application/json');
+
+    var body = {
+      email: cliente.email,
+      senha: cliente.senha,
+      nome: cliente.nome,
+      data: cliente.dataNascimento,
+      celular: cliente.celular
+    }
+
+    return this.http.post<Cliente>(this.baseURL + "api/cliente", body, { headers });
   }
 }
