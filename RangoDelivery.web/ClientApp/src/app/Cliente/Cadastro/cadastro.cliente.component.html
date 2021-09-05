@@ -28,18 +28,69 @@
             <h3 class="register-heading">Cadastre-se como cliente</h3>
             <div class="row register-form">
               <div class="col-md-6">
+
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nome" value="" />
+                  <input type="text" class="form-control" name="nome" placeholder="Nome"
+                         [ngClass]="{
+                          'is-invalid':nome.invalid && (nome.dirty || nome.touched),
+                          'is-valid':nome.valid && (nome.dirty || nome.touched)
+                         }"
+                         [(ngModel)]="cliente.nome"
+                         #nome="ngModel" required />
+
+                  <!--Validação do nome-->
+                  <div class="invalid-feedback" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+                    <div *ngIf="nome.errors.required">
+                      Nome deve ser preenchido!
+                    </div>
+                  </div>
+                  <!------------------>
                 </div>
+
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Aniversario" value="" />
+                  <input type="date" class="form-control" placeholder="Aniversario" name="dataNascimento"
+                         [ngClass]="{
+                          'is-invalid':dataNascimento.invalid && (dataNascimento.dirty || dataNascimento.touched),
+                          'is-valid':dataNascimento.valid && (dataNascimento.dirty || dataNascimento.touched)
+                         }"
+                         [(ngModel)]="cliente.dataNascimento"
+                         #dataNascimento="ngModel" required />
+
+                  <!--Validação do aniversario-->
+                  <div class="invalid-feedback" *ngIf="dataNascimento.invalid && (dataNascimento.dirty || dataNascimento.touched)">
+                    <div *ngIf="dataNascimento.errors.required">
+                      Aniversario deve ser preenchido!
+                    </div>
+                    <div *ngIf="dataNascimento.errors.date">
+                      Aniversario não está no formato correto!
+                    </div>
+                  </div>
+                  <!------------------>
                 </div>
+
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Senha" value="" />
+                  <input type="password" class="form-control" placeholder="Senha" name="senha"
+                         [ngClass]="{
+                          'is-invalid':senha.invalid && (senha.dirty || senha.touched),
+                          'is-valid':senha.valid && (senha.dirty || senha.touched)
+                         }"
+                         [(ngModel)]="cliente.senha"
+                         #senha="ngModel" required />
+
+                  <!--Validação da senha-->
+                  <div class="invalid-feedback" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
+                    <div *ngIf="senha.errors.required">
+                      Senha deve ser preenchido!
+                    </div>
+                  </div>
+                  <!------------------>
                 </div>
+
                 <div class="form-group">
                   <input type="password" class="form-control" placeholder="Confirme senha" value="" />
                 </div>
+
+
                 <div class="form-group">
                   <div class="maxl">
                     <label class="radio inline">
@@ -53,13 +104,47 @@
                   </div>
                 </div>
               </div>
+
               <div class="col-md-6">
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email" value="" />
+                  <input type="email" class="form-control" placeholder="Email"
+                         name="email"
+                         [ngClass]="{
+                         'is-invalid':email.invalid && (email.dirty || email.touched),
+                         'is-valid':email.valid && (email.dirty || email.touched)
+                         }"
+                         [(ngModel)]="cliente.email"
+                         #email="ngModel" email required />
+
+                  <!--Validação do email-->
+                  <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <div *ngIf="email.errors.required">
+                      Email deve ser preenchido!
+                    </div>
+                    <div *ngIf="email.errors.email">
+                      Email não está no formato correto!
+                    </div>
+                  </div>
+                  <!------------------>
                 </div>
+
                 <div class="form-group">
-                  <input type="text" minlength="10" maxlength="10" name="Celular" class="form-control" placeholder="Celular" value="" />
+                  <input type="text" minlength="10" maxlength="10" name="celular" class="form-control" placeholder="Celular"
+                         [ngClass]="{
+                         'is-invalid':celular.invalid && (celular.dirty || celular.touched),
+                         'is-valid':celular.valid && (celular.dirty || celular.touched)
+                         }"
+                         [(ngModel)]="cliente.celular"
+                         #celular="ngModel" required />
+
+                  <!--Validação do celular-->
+                  <div class="invalid-feedback" *ngIf="celular.invalid && (celular.dirty || celular.touched)">
+                    <div *ngIf="celular.errors.required">
+                      Celular deve ser preenchido!
+                    </div>
+                  </div>
                 </div>
+                <!------------------>
                 <!--<div class="form-group">
                   <select class="form-control">
                     <option class="hidden" selected disabled>Please select your Sequrity Question</option>
@@ -71,7 +156,8 @@
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
                 </div>-->
-                <input type="submit" class="btnRegister" value="Cadastrar"  (click)="cadastrar()"/>
+
+                <input type="submit" class="btnRegister" value="Cadastrar" (click)="cadastrar()" />
               </div>
             </div>
           </div>
@@ -110,7 +196,7 @@
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="`Answer *" value="" />
                 </div>-->
-                <input type="submit" class="btnRegister" value="Cadastrar"  (click)="cadastrar()" />
+                <input type="submit" class="btnRegister" value="Cadastrar" (click)="cadastrar()" />
               </div>
             </div>
           </div>
