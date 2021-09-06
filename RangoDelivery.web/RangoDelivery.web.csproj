@@ -56,6 +56,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\Empresa\" />
     <Folder Include="ClientApp\src\app\serviços\usuario\" />
     <Folder Include="ClientApp\src\assets\img\" />
   </ItemGroup>

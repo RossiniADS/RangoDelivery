@@ -1,0 +1,12 @@
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\bin\Debug\net5.0\RangoDelivery.Dominio.deps.json
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\bin\Debug\net5.0\RangoDelivery.Dominio.dll
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\bin\Debug\net5.0\ref\RangoDelivery.Dominio.dll
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\bin\Debug\net5.0\RangoDelivery.Dominio.pdb
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\obj\Debug\net5.0\RangoDelivery.Dominio.csproj.AssemblyReference.cache
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\obj\Debug\net5.0\RangoDelivery.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\obj\Debug\net5.0\RangoDelivery.Dominio.AssemblyInfoInputs.cache
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\obj\Debug\net5.0\RangoDelivery.Dominio.AssemblyInfo.cs
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\obj\Debug\net5.0\RangoDelivery.Dominio.csproj.CoreCompileInputs.cache
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\obj\Debug\net5.0\RangoDelivery.Dominio.dll
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\obj\Debug\net5.0\ref\RangoDelivery.Dominio.dll
+D:\Usuario\Documentos\Projeto Startup\Projeto\RangoDelivery\RangoDelivery.Dominio\obj\Debug\net5.0\RangoDelivery.Dominio.pdb
