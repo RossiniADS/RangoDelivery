@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Local } from "protractor/built/driverProviders";
-import { Cliente } from "../../model/cliente";
+import { Cliente } from "../model/cliente";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ClienteServico } from "../../serviços/cliente/cliente.servico";
+import { ClienteServico } from "../serviços/cliente/cliente.servico";
 import { Subscriber } from "rxjs";
 
 @Component({

@@ -8,10 +8,10 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ClienteComponent } from './Cliente/cliente.component';
-import { LoginComponent } from './Cliente/Login/login.component';
+import { LoginComponent } from './Login/login.component';
 import { GuardaRotas } from './autorizacao/guarda.rotas';
 import { ClienteServico } from './serviços/cliente/cliente.servico';
-import { CadastroUsuarioComponent } from './Cliente/Cadastro/cadastro.cliente.component';
+import { CadastroUsuarioComponent } from './Cadastro/cadastro.component';
 
 @NgModule({
   declarations: [

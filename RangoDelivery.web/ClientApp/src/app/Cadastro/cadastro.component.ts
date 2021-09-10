@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { Cliente } from "../../model/cliente";
-import { ClienteServico } from "../../serviços/cliente/cliente.servico";
+import { Cliente } from "../model/cliente";
+import { ClienteServico } from "../serviços/cliente/cliente.servico";
 
 @Component({
-  selector: "cadastro-cliente",
-  templateUrl: "./cadastro.cliente.component.html",
-  styleUrls: ["./cadastro.cliente.component.css"]
+  selector: "cadastrar",
+  templateUrl: "./cadastro.component.html",
+  styleUrls: ["./cadastro.component.css"]
 })
 export class CadastroUsuarioComponent implements OnInit {
   public cliente: Cliente;
