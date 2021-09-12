@@ -156,31 +156,85 @@
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
                 </div>-->
-
                 <input type="submit" class="btnRegister" value="Cadastrar" (click)="cadastrar()" />
               </div>
             </div>
           </div>
+          <!--Grupo da Empresa-->
           <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <h3 class="register-heading">Cadastre-se como empresa</h3>
             <div class="row register-form">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nome da empresa" value="" />
+                  <input type="text" class="form-control" placeholder="Nome da empresa" name="nomeEmpresa"
+                         [ngClass]="{
+                         'is-invalid':nomeEmpresa.invalid && (nomeEmpresa.dirty || nomeEmpresa.touched),
+                         'is-valid':nomeEmpresa.valid && (nomeEmpresa.dirty || nomeEmpresa.touched)
+                         }"
+                         [(ngModel)]="empresa.nomeFantasia"
+                         #nomeEmpresa="ngModel" required />
+                  <!--Validação do Nome da empresa-->
+                  <div class="invalid-feedback" *ngIf="nomeEmpresa.invalid && (nomeEmpresa.dirty || nomeEmpresa.touched)">
+                    <div *ngIf="nomeEmpresa.errors.required">
+                      Nome da empresa deve ser preenchido!
+                    </div>
+                  </div>
+                  <!------------------>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nome do proprietario" value="" />
+                  <input type="text" class="form-control" placeholder="Nome do proprietario"/>
+                  <!--Validação do Nome do proprietario-->
+                  <!--<div class="invalid-feedback" *ngIf="celular.invalid && (celular.dirty || celular.touched)">
+                    <div *ngIf="celular.errors.required">
+                      O nome do proprietario deve ser preenchido!
+                    </div>
+                  </div>-->
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" placeholder="Email" value="" />
+                  <input type="email" class="form-control" placeholder="Email" name="emailEmp"
+                         [ngClass]="{
+                         'is-invalid':emailEmp.invalid && (emailEmp.dirty || emailEmp.touched),
+                         'is-valid':emailEmp.valid && (emailEmp.dirty || emailEmp.touched)
+                         }"
+                         [(ngModel)]="empresa.email"
+                         #emailEmp="ngModel" required />
+                  <!--Validação do email-->
+                  <div class="invalid-feedback" *ngIf="emailEmp.invalid && (emailEmp.dirty || emailEmp.touched)">
+                    <div *ngIf="emailEmp.errors.required">
+                      Email deve ser preenchido!
+                    </div>
+                    <div *ngIf="emailEmp.errors.email">
+                      Email não está no formato correto!
+                    </div>
+                  </div>
+                  <!------------------>
                 </div>
                 <div class="form-group">
                   <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Telefone" value="" />
+                  <!--Validação do telefone-->
+                  <!--<div class="invalid-feedback" *ngIf="celular.invalid && (celular.dirty || celular.touched)">
+                    <div *ngIf="celular.errors.required">
+                      O telefone deve ser preenchido!
+                    </div>
+                  </div>-->
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Senha" value="" />
+                  <input type="password" class="form-control" placeholder="Senha" name="senhaEmp"
+                         [ngClass]="{
+                         'is-invalid':senhaEmp.invalid && (senhaEmp.dirty || senhaEmp.touched),
+                         'is-valid':senhaEmp.valid && (senhaEmp.dirty || senhaEmp.touched)
+                         }"
+                         [(ngModel)]="empresa.senha"
+                         #senhaEmp="ngModel" required />
+                  <!--Validação da senha-->
+                  <div class="invalid-feedback" *ngIf="senhaEmp.invalid && (senhaEmp.dirty || senhaEmp.touched)">
+                    <div *ngIf="senhaEmp.errors.required">
+                      Senha deve ser preenchido!
+                    </div>
+                  </div>
+                  <!------------------>
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" placeholder="Confirmar senha" value="" />
@@ -196,7 +250,7 @@
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="`Answer *" value="" />
                 </div>-->
-                <input type="submit" class="btnRegister" value="Cadastrar" (click)="cadastrar()" />
+                <input type="submit" class="btnRegister" value="Cadastrar" (click)="cadastrarEmp()" />
               </div>
             </div>
           </div>

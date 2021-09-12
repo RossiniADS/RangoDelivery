@@ -11,7 +11,8 @@ import { ClienteComponent } from './Cliente/cliente.component';
 import { LoginComponent } from './Login/login.component';
 import { GuardaRotas } from './autorizacao/guarda.rotas';
 import { ClienteServico } from './serviços/cliente/cliente.servico';
-import { CadastroUsuarioComponent } from './Cadastro/cadastro.component';
+import { EmpresaServico } from './serviços/empresa/empresa.servico';
+import { CadastroClienteComponent } from './Cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { CadastroUsuarioComponent } from './Cadastro/cadastro.component';
     HomeComponent,
     ClienteComponent,
     LoginComponent,
-    CadastroUsuarioComponent
+    CadastroClienteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,10 +31,10 @@ import { CadastroUsuarioComponent } from './Cadastro/cadastro.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'cliente', component: ClienteComponent, canActivate: [GuardaRotas] },
       { path: 'entrar', component: LoginComponent },
-      { path: "cadastro-cliente", component: CadastroUsuarioComponent }
+      { path: "cadastrar", component: CadastroClienteComponent }
     ])
   ],
-  providers: [ClienteServico],
+  providers: [ClienteServico, EmpresaServico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

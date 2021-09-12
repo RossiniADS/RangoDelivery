@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ObjetoDeValor\" />
+    <Compile Remove="ObjetoDeValor\**" />
+    <EmbeddedResource Remove="ObjetoDeValor\**" />
+    <None Remove="ObjetoDeValor\**" />
   </ItemGroup>
 
 </Project>

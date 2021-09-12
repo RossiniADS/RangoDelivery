@@ -26,13 +26,24 @@ namespace RangoDelivery.web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
+            // LINK: https://www.thecodebuzz.com/jsonexception-possible-object-cycle-detected-object-depth/
+            // .AddNEwTonsoftJson foi adicionado nos dois services abaixo pois estava dando o erro de JsonException
+            
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+            
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+                .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
 
             var connectionString = Configuration.GetConnectionString("RangoDeliveryDB");
-            services.AddDbContext<RangoDeliveryContexto>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 24)), m => m.MigrationsAssembly("RangoDelivery.Repositorio")));
+            services.AddDbContext<RangoDeliveryContexto>(option => option.UseLazyLoadingProxies()
+            .UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 24)),
+            m => m.MigrationsAssembly("RangoDelivery.Repositorio")));
 
-            services.AddScoped <IClienteRepositorio, ClienteRepositorio>();
+            services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+            services.AddScoped<IEmpresaRepositorio, EmpresaRepositorio>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -42,6 +53,10 @@ namespace RangoDelivery.web
         }
 
         private int ClienteRepositorio()
+        {
+            throw new NotImplementedException();
+        }
+        private int EmpresaRepositorio()
         {
             throw new NotImplementedException();
         }
