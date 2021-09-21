@@ -10,7 +10,7 @@
             'is-invalid':email.invalid && (email.dirty || email.touched),
             'is-valid':email.valid && (email.dirty || email.touched)
            }"
-           placeholder="Email address" [(ngModel)]="cliente.email"
+           placeholder="Email address" [(ngModel)]="empresa.email"
            #email="ngModel" email required />
 
     <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
@@ -28,7 +28,7 @@
             'is-invalid':senha.invalid && (senha.dirty || senha.touched),
             'is-valid':senha.valid && (senha.dirty || senha.touched)
            }"
-           placeholder="Password" [(ngModel)]="cliente.senha"
+           placeholder="Password" [(ngModel)]="empresa.senha"
            #senha="ngModel" required />
 
     <div class="invalid-feedback" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
@@ -45,7 +45,6 @@
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
       Entrar
     </button>
-    <div class="mt-2 mb-2"><a [routerLink]='["/login-empresa"]'>Fazer login como Empresa?</a></div>
     <div class="alert alert-danger" *ngIf="mensagem">
       {{mensagem}}
     </div>

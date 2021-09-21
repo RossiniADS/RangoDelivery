@@ -14,12 +14,12 @@ export class EmpresaServico {
 
 
   set empresa(empresa: Empresa) {
-    sessionStorage.setItem("cliente-autenticado", JSON.stringify(empresa));
+    sessionStorage.setItem("empresa-autenticado", JSON.stringify(empresa));
     this._empresa = empresa;
   }
 
   get empresa(): Empresa {
-    let empresa_json = sessionStorage.getItem("cliente-autenticado");
+    let empresa_json = sessionStorage.getItem("empresa-autenticado");
     this._empresa = JSON.parse(empresa_json);
     return this._empresa;
   }
@@ -29,7 +29,7 @@ export class EmpresaServico {
   }
 
   public limpar_sessao() {
-    sessionStorage.setItem("cliente-autenticado", "");
+    sessionStorage.setItem("empresa-autenticado", "");
     this._empresa = null;
   }
 

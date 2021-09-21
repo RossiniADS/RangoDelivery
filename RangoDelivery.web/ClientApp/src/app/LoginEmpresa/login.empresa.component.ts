@@ -1,14 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { Local } from "protractor/built/driverProviders";
-import { Empresa } from "../model/empresa";
 import { ActivatedRoute, Router } from "@angular/router";
 import { EmpresaServico } from "../serviços/empresa/empresa.servico";
-import { Subscriber } from "rxjs";
+import { Empresa } from "../model/empresa";
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  selector: "app-login-empresa",
+  templateUrl: "./login.empresa.component.html",
+  styleUrls: ["./login.empresa.component.css"] //[] pq é como se fosse lista
 })
 export class LoginEmpresaComponent implements OnInit {
   public empresa;
@@ -40,7 +38,6 @@ export class LoginEmpresaComponent implements OnInit {
           } else {
             this.router.navigate([this.returnUrl]);
           }
-
         },
         err => {
           console.log(err.error);

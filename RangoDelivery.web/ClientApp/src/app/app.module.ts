@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ClienteComponent } from './Cliente/cliente.component';
 import { LoginComponent } from './Login/login.component';
+import { LoginEmpresaComponent } from './LoginEmpresa/login.empresa.component';
 import { GuardaRotas } from './autorizacao/guarda.rotas';
 import { ClienteServico } from './serviços/cliente/cliente.servico';
 import { EmpresaServico } from './serviços/empresa/empresa.servico';
@@ -21,7 +22,8 @@ import { CadastroClienteComponent } from './Cadastro/cadastro.component';
     HomeComponent,
     ClienteComponent,
     LoginComponent,
-    CadastroClienteComponent
+    CadastroClienteComponent,
+    LoginEmpresaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,7 +33,8 @@ import { CadastroClienteComponent } from './Cadastro/cadastro.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'cliente', component: ClienteComponent, canActivate: [GuardaRotas] },
       { path: 'entrar', component: LoginComponent },
-      { path: "cadastrar", component: CadastroClienteComponent }
+      { path: "cadastrar", component: CadastroClienteComponent },
+      { path: "login-empresa", component: LoginEmpresaComponent }
     ])
   ],
   providers: [ClienteServico, EmpresaServico],
