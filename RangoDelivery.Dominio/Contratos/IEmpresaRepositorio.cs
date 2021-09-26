@@ -10,5 +10,6 @@ namespace RangoDelivery.Dominio.Contratos
     public interface IEmpresaRepositorio : IBaseRepositorio<Empresa>
     {
         Empresa Obter(string email, string senha);
+        Empresa Obter(string email);
     }
 }

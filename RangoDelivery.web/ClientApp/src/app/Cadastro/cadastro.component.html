@@ -146,17 +146,20 @@
                 </div>
                 <!------------------>
                 <!--<div class="form-group">
-                  <select class="form-control">
-                    <option class="hidden" selected disabled>Please select your Sequrity Question</option>
-                    <option>What is your Birthdate?</option>
-                    <option>What is Your old Phone Number</option>
-                    <option>What is your Pet Name?</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
-                </div>-->
-                <input type="submit" class="btnRegister" value="Cadastrar" (click)="cadastrar()" />
+    <select class="form-control">
+      <option class="hidden" selected disabled>Please select your Sequrity Question</option>
+      <option>What is your Birthdate?</option>
+      <option>What is Your old Phone Number</option>
+      <option>What is your Pet Name?</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
+  </div>-->
+                <button type="submit" class="btn btnRegister" (click)="cadastrar()" [disabled]="ativar_spinner">
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+                  Cadastrar
+                </button>
               </div>
             </div>
           </div>
@@ -182,13 +185,13 @@
                   <!------------------>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Nome do proprietario"/>
+                  <input type="text" class="form-control" placeholder="Nome do proprietario" />
                   <!--Validação do Nome do proprietario-->
                   <!--<div class="invalid-feedback" *ngIf="celular.invalid && (celular.dirty || celular.touched)">
-                    <div *ngIf="celular.errors.required">
-                      O nome do proprietario deve ser preenchido!
-                    </div>
-                  </div>-->
+            <div *ngIf="celular.errors.required">
+              O nome do proprietario deve ser preenchido!
+            </div>
+          </div>-->
                 </div>
                 <div class="form-group">
                   <input type="email" class="form-control" placeholder="Email" name="emailEmp"
@@ -210,13 +213,13 @@
                   <!------------------>
                 </div>
                 <div class="form-group">
-                  <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Telefone" value="" />
+                  <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Telefone" />
                   <!--Validação do telefone-->
                   <!--<div class="invalid-feedback" *ngIf="celular.invalid && (celular.dirty || celular.touched)">
-                    <div *ngIf="celular.errors.required">
-                      O telefone deve ser preenchido!
-                    </div>
-                  </div>-->
+            <div *ngIf="celular.errors.required">
+              O telefone deve ser preenchido!
+            </div>
+          </div>-->
                 </div>
               </div>
               <div class="col-md-6">
@@ -240,21 +243,27 @@
                   <input type="password" class="form-control" placeholder="Confirmar senha" value="" />
                 </div>
                 <!--<div class="form-group">
-                  <select class="form-control">
-                    <option class="hidden" selected disabled>Please select your Sequrity Question</option>
-                    <option>What is your Birthdate?</option>
-                    <option>What is Your old Phone Number</option>
-                    <option>What is your Pet Name?</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="`Answer *" value="" />
-                </div>-->
-                <input type="submit" class="btnRegister" value="Cadastrar" (click)="cadastrarEmp()" />
+          <select class="form-control">
+            <option class="hidden" selected disabled>Please select your Sequrity Question</option>
+            <option>What is your Birthdate?</option>
+            <option>What is Your old Phone Number</option>
+            <option>What is your Pet Name?</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="`Answer *" value="" />
+        </div>-->
+                <button type="submit" class="btn btnRegister" (click)="cadastrarEmp()" [disabled]="ativar_spinner">
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+                  Cadastrar
+                </button>
               </div>
             </div>
           </div>
           <div class="alert alert-danger" *ngIf="mensagem">
+            {{mensagem}}
+          </div>
+          <div class="alert alert-sucess" *ngIf="usuarioCadastrado">
             {{mensagem}}
           </div>
         </div>

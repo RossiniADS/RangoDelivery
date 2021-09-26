@@ -55,8 +55,21 @@ namespace RangoDelivery.web.Controllers
         {
             try
             {
+                var empresaCadastrada = _empresaRepositorio.Obter(empresa.Email);
+                if (empresaCadastrada != null)
+                {
+                    return BadRequest("Empresa já cadastrado no sistema");
+                }
+                empresa.UrlFoto = "Vazio";
+                empresa.Cnpj = "49968878988";
+                empresa.NumeroEndereco = "98";
+                empresa.RazaoSocial = "123456";
+
+
                 _empresaRepositorio.Adicionar(empresa);
-                return Created("empresa", empresa);
+                //return Created("empresa", empresa);
+
+                 return Ok();
             }
             catch (Exception ex)
             {

@@ -1,4 +1,4 @@
-import { Injectable, inject, Inject } from "@angular/core";
+import { Injectable, Inject } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Cliente } from "../../model/cliente";
@@ -37,6 +37,10 @@ export class ClienteServico {
     this.baseURL = baseUrl;
   }
 
+  get headers(): HttpHeaders {
+    return new HttpHeaders().set('content-type', 'application/json');
+  }
+
   public verificaCliente(cliente: Cliente): Observable<Cliente> {
 
     const headers = new HttpHeaders().set('content-type', 'application/json');
@@ -49,16 +53,6 @@ export class ClienteServico {
   }
   public cadastrarCliente(cliente: Cliente): Observable<Cliente> {
 
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-
-    var body = {
-      email: cliente.email,
-      senha: cliente.senha,
-      nome: cliente.nome,
-      data: cliente.dataNascimento,
-      celular: cliente.celular
-    }
-
-    return this.http.post<Cliente>(this.baseURL + "api/cliente", body, { headers });
+    return this.http.post<Cliente>(this.baseURL + "api/cliente", JSON.stringify(cliente), { headers: this.headers });
   }
 }

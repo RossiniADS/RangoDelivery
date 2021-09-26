@@ -1,4 +1,4 @@
-import { Injectable, inject, Inject } from "@angular/core";
+import { Injectable, Inject } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Empresa } from "../../model/empresa";
@@ -37,6 +37,10 @@ export class EmpresaServico {
     this.baseURL = baseUrl;
   }
 
+  get headers(): HttpHeaders {
+    return new HttpHeaders().set('content-type', 'application/json');
+  }
+
   public verificaEmpresa(empresa: Empresa): Observable<Empresa> {
 
     const headers = new HttpHeaders().set('content-type', 'application/json');
@@ -49,16 +53,6 @@ export class EmpresaServico {
   }
   public cadastrarEmpresa(empresa: Empresa): Observable<Empresa> {
 
-    const headers = new HttpHeaders().set('content-type', 'application/json');
-
-    var body = {
-      email: empresa.email,
-      senha: empresa.senha,
-      nome: empresa.cnpj,
-      data: empresa.nomeFantasia,
-      celular: empresa.razaoSocial
-    }
-
-    return this.http.post<Empresa>(this.baseURL + "api/empresa", body, { headers });
+    return this.http.post<Empresa>(this.baseURL + "api/empresa", JSON.stringify(empresa), { headers: this.headers });
   }
 }

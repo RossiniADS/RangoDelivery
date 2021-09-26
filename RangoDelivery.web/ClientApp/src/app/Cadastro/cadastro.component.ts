@@ -13,7 +13,10 @@ export class CadastroClienteComponent implements OnInit {
   public cliente: Cliente;
   public mensagem: string;
   public empresa: Empresa;
-
+  public clienteCadastrado: boolean;
+  public empresaCadastrada: boolean;
+  public ativar_spinner: boolean;
+  
   constructor(private clienteServico: ClienteServico, private empresaServico: EmpresaServico) {
 
   }
@@ -24,24 +27,30 @@ export class CadastroClienteComponent implements OnInit {
   }
 
   public cadastrar() {
+    this.ativar_spinner = true;
     this.clienteServico.cadastrarCliente(this.cliente).subscribe(
       clienteJson => {
-
+        this.clienteCadastrado = true;
+        this.mensagem = "";
+        this.ativar_spinner = false;
       },
       err => {
-        console.log(err.error);
         this.mensagem = err.error;
+        this.ativar_spinner = false;
       }
     );
   }
   public cadastrarEmp() {
+    this.ativar_spinner = true;
     this.empresaServico.cadastrarEmpresa(this.empresa).subscribe(
       clienteJson => {
-
+        this.empresaCadastrada = true;
+        this.mensagem = "";
+        this.ativar_spinner = false;
       },
       err => {
-        console.log(err.error);
         this.mensagem = err.error;
+        this.ativar_spinner = false;
       }
     );
   }

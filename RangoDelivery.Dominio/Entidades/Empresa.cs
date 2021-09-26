@@ -16,7 +16,7 @@ namespace RangoDelivery.Dominio.Entidades
         public string Senha { get; set; }
         public string NumeroEndereco{ get; set; }
         public string UrlFoto { get; set; }
-        public int EnderecoId { get; set; }
+        public int? EnderecoId { get; set; }
         public virtual Endereco Endereco { get; set; }
         public virtual ICollection<Categoria_has_empresa> Categoria_has_empresas { get; set; }
         public virtual ICollection<Telefone> Telefones { get; set; }

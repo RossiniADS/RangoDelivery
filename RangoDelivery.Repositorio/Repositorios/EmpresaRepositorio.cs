@@ -15,5 +15,9 @@ namespace RangoDelivery.Repositorio.Repositorios
         {
             return RangoDeliveryContexto.Empresas.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
+        public Empresa Obter(string email)
+        {
+            return RangoDeliveryContexto.Empresas.FirstOrDefault(u => u.Email == email);
+        }
     }
 }

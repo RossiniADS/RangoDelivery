@@ -37,11 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
-    <None Remove="ClientApp\src\app\Cliente\cliente.component.ts" />
     <None Remove="ClientApp\src\app\model\cliente.ts" />
-    <None Remove="ClientApp\src\app\serviços\cliente\cliente.servico.ts" />
-    <None Remove="ClientApp\src\app\serviços\empresa\empresa.servico.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,11 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\Cliente\cliente.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\model\cliente.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\serviços\cliente\cliente.servico.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\serviços\empresa\empresa.servico.ts" />
   </ItemGroup>
 
   <ItemGroup>

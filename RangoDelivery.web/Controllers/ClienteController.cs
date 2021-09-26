@@ -55,8 +55,16 @@ namespace RangoDelivery.web.Controllers
         {
             try
             {
+                var clienteCadastrado = _clienteRepositorio.Obter(cliente.Email);
+                if (clienteCadastrado != null)
+                {
+                    return BadRequest("Usuário já cadastrado no sistema");
+                }
+                cliente.UrlFoto = "Url";
                 _clienteRepositorio.Adicionar(cliente);
-                return Created("cliente", cliente);
+                //return Created("cliente", cliente);
+
+                return Ok();
             }
             catch (Exception ex)
             {
