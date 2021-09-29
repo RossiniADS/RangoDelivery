@@ -40,4 +40,7 @@ export class NavMenuComponent {
     }
     this.router.navigate(['/']);
   }
+  get cliente() {
+    return this.clienteServico.cliente;
+  }
 }

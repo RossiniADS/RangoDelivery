@@ -41,5 +41,10 @@ export class PedidoServico implements OnInit {
   public obterPedido(pedidoId: number): Observable<Pedido> {
     return this.http.get<Pedido>(this._baseUrl + "api/pedido");
   }
+  public enviarArquivo(arquivoSelecionado: File): Observable<boolean> {
+    const formData: FormData = new FormData();
+    formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name);
+    return this.http.post<boolean>(this._baseUrl + "api/pedido/enviarArquivo", arquivoSelecionado);
+  }
 
 }

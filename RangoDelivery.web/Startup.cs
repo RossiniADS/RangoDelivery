@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -28,14 +29,16 @@ namespace RangoDelivery.web
         {
             // LINK: https://www.thecodebuzz.com/jsonexception-possible-object-cycle-detected-object-depth/
             // .AddNEwTonsoftJson foi adicionado nos dois services abaixo pois estava dando o erro de JsonException
-            
+
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
-            
+
             services.AddMvc(option => option.EnableEndpointRouting = false)
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             var connectionString = Configuration.GetConnectionString("RangoDeliveryDB");
             services.AddDbContext<RangoDeliveryContexto>(option => option.UseLazyLoadingProxies()
@@ -44,6 +47,7 @@ namespace RangoDelivery.web
 
             services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             services.AddScoped<IEmpresaRepositorio, EmpresaRepositorio>();
+            services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
