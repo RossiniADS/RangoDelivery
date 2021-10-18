@@ -53,12 +53,12 @@ namespace RangoDelivery.web.Controllers
                 return BadRequest(ex.ToString());
             }
         }
-        [HttpPost("EnviarArquivo")]
+        [HttpPost("enviarArquivo")]
         public IActionResult EnviarArquivo()
         {
             try
             {
-                var formFile = _httpContextAccessor.HttpContext.Request.Form.Files["arquivoEnviado"];
+                var formFile = _httpContextAccessor.HttpContext.Request.Form.Files[0];
                 var nomeArquivo = formFile.FileName;
                 var extensao = nomeArquivo.Split(".").Last();
                 var arrayNomeCompacto = Path.GetFileNameWithoutExtension(nomeArquivo).Take(10).ToArray();
@@ -72,7 +72,6 @@ namespace RangoDelivery.web.Controllers
                 }
 
                 return Ok("Arquivo enviado com sucesso!");
-
             }
             catch (Exception ex)
             {

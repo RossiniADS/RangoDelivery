@@ -1,5 +1,5 @@
 import { Injectable, Inject, OnInit } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpRequest } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Pedido } from "../../model/pedido";
 
@@ -43,8 +43,21 @@ export class PedidoServico implements OnInit {
   }
   public enviarArquivo(arquivoSelecionado: File): Observable<boolean> {
     const formData: FormData = new FormData();
-    formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name);
-    return this.http.post<boolean>(this._baseUrl + "api/pedido/enviarArquivo", arquivoSelecionado);
+    formData.append(arquivoSelecionado.name, arquivoSelecionado);
+    
+    const uploadReq = new HttpRequest('POST', this._baseUrl + "api/pedido/enviarArquivo", formData, {
+      reportProgress: true,
+    });
+
+    this.http.request(uploadReq).subscribe();
+
+    return;
+    //return this.http.post<boolean>(this._baseUrl + "api/pedido/enviarArquivo", FormData);
+
+    //return this.http.post<boolean>(this._baseUrl + "api/pedido/enviarArquivo", FormData, {
+    //  reportProgress: true,
+    //});
+
   }
 
 }
