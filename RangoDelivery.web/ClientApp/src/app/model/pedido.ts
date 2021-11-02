@@ -6,4 +6,5 @@ export class Pedido {
  //caracteristica: string;
 //quantidade: number;
   valor: number
+  nomeArquivo: string;
 }

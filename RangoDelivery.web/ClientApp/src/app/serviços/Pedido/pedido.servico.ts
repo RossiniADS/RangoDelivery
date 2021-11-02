@@ -1,6 +1,6 @@
 import { Injectable, Inject, OnInit } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpRequest } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, Subscriber } from "rxjs";
 import { Pedido } from "../../model/pedido";
 
 
@@ -10,6 +10,8 @@ import { Pedido } from "../../model/pedido";
 export class PedidoServico implements OnInit {
   private _baseUrl: String;
   public pedidos: Pedido[];
+  public teste;
+  public picName;
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this._baseUrl = baseUrl;
@@ -41,23 +43,20 @@ export class PedidoServico implements OnInit {
   public obterPedido(pedidoId: number): Observable<Pedido> {
     return this.http.get<Pedido>(this._baseUrl + "api/pedido");
   }
-  public enviarArquivo(arquivoSelecionado: File): Observable<boolean> {
+
+  public enviarArquivo(arquivoSelecionado: File): Observable<string> {
     const formData: FormData = new FormData();
     formData.append(arquivoSelecionado.name, arquivoSelecionado);
-    
-    const uploadReq = new HttpRequest('POST', this._baseUrl + "api/pedido/enviarArquivo", formData, {
-      reportProgress: true,
-    });
-
-    this.http.request(uploadReq).subscribe();
-
-    return;
-    //return this.http.post<boolean>(this._baseUrl + "api/pedido/enviarArquivo", FormData);
-
-    //return this.http.post<boolean>(this._baseUrl + "api/pedido/enviarArquivo", FormData, {
-    //  reportProgress: true,
-    //});
-
+    return this.http.post<string>(this._baseUrl + "api/pedido/enviarArquivo", formData);
   }
 
+  /*
+    public async enviarArquivo(arquivoSelecionado: File): Promise<Observable<string>> {
+    const formData: FormData = new FormData();
+    formData.append(arquivoSelecionado.name, arquivoSelecionado);
+
+    const uploadReq = new HttpRequest('POST', this._baseUrl + "api/pedido/enviarArquivo", formData);
+    this.picName = await this.http.request(uploadReq).toPromise();
+    return this.picName;
+  }*/
 }
