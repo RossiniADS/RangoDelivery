@@ -14,7 +14,7 @@ namespace RangoDelivery.Repositorio.Config
             builder.Property(p => p.Descricao).IsRequired().HasMaxLength(100);
             builder.Property(p => p.Caracteristica).IsRequired().HasMaxLength(100);
             builder.Property(p => p.Quantidade).IsRequired();
-            builder.Property(p => p.Valor).IsRequired();
+            builder.Property(p => p.Valor).IsRequired().HasColumnType("decimal(19,4)");
            
             builder.HasMany(p => p.Venda_has_pedidos).WithOne(v => v.Pedido);
             builder.HasMany(p => p.Imagens).WithOne(v => v.Pedido);

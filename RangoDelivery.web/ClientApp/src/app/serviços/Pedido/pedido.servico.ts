@@ -27,7 +27,7 @@ export class PedidoServico implements OnInit {
 
   public cadastrar(pedido: Pedido): Observable<Pedido> {
 
-    return this.http.post<Pedido>(this._baseUrl + "api/pedido/cadastrar", JSON.stringify(pedido), { headers: this.headers });
+    return this.http.post<Pedido>(this._baseUrl + "api/pedido", JSON.stringify(pedido), { headers: this.headers });
   }
   public salvar(pedido: Pedido): Observable<Pedido> {
 

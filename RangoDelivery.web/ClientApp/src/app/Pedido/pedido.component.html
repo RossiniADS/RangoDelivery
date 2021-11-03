@@ -4,7 +4,10 @@
        name="nomePedido"
        placeholder="Nome do Pedido"
        class="form-control mb-2 col-md-4"
-       [ngClass]=""
+       [ngClass]="{
+        'is-invalid': nome.invalid && (nome.dirty || nome.touched),
+        'is-valid': nome.valid && (nome.dirty || nome.touched)
+       }"
        [(ngModel)]="pedido.nome"
        #nome="ngModel"
        required />
@@ -20,7 +23,10 @@
        name="descricao"
        placeholder="Descrição do pedido"
        class="form-control mb-2 col-md-4"
-       [ngClass]=""
+       [ngClass]="{
+        'is-invalid': descricao.invalid && (descricao.dirty || descricao.touched),
+        'is-valid': descricao.valid && (descricao.dirty || descricao.touched)
+       }"
        [(ngModel)]="pedido.descricao"
        #descricao="ngModel"
        required />
@@ -36,7 +42,10 @@
        name="precoPedido"
        placeholder="Preço"
        class="form-control mb-2 col-md-2"
-       [ngClass]=""
+       [ngClass]="{
+        'is-invalid': preco.invalid && (preco.dirty || preco.touched),
+        'is-valid': preco.valid && (preco.dirty || preco.touched)
+       }"
        [(ngModel)]="pedido.preco"
        #preco="ngModel"
        required />
@@ -54,7 +63,10 @@
   </div>
 </div>
 
-<button class="btn btn-primary" (click)="cadastrar()" [disabled]="ativar_spinner">
-  <span class="spinner-border spinner-border-sm" *ngIf="atiar_spinner"></span>
+<button class="btn btn-primary mb-2" (click)="cadastrar()" [disabled]="ativar_spinner">
+  <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
   Cadastrar
 </button>
+<div class="alert alert-danger col-md-4" *ngIf="mensagem">
+  {{mensagem}}
+</div>

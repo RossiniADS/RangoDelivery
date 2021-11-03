@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Pedido } from "../model/pedido";
-import { PedidoServico } from "../serviços/Pedido/pedido.servico";
+import { PedidoServico } from "../serviços/Pedido/pedido.servico"; 
 
 @Component({
   selector: "app-pedido",
@@ -11,6 +11,7 @@ export class PedidoComponent implements OnInit {
   public pedido: Pedido
   public arquivoSelecionado: File;
   public ativar_spinner: boolean;
+  public mensagem: string;
 
   constructor(private pedidoServico: PedidoServico) {
 
@@ -21,16 +22,35 @@ export class PedidoComponent implements OnInit {
   }
 
   public cadastrar() {
-    //this.pedido
+    this.ativar_spinner = true;
     this.pedidoServico.cadastrar(this.pedido)
       .subscribe(
         pedidoJson => {
           console.log(pedidoJson);
+          alert("Foi")
+          this.ativar_spinner = false;
         },
         e => {
           console.log(e.error);
+          alert(e.error)
+          this.mensagem = e.error;
+          this.ativar_spinner = false;
         }
       );
+  }
+
+  public inputChange(files: FileList) {
+    this.arquivoSelecionado = files.item(0);
+    this.ativar_spinner = true;
+    this.pedidoServico.enviarArquivo(this.arquivoSelecionado)
+      .subscribe(nomeArquivo => {
+        this.pedido.nomeArquivo = nomeArquivo;
+        this.ativar_spinner = false;
+      },
+        e => {
+          console.log(e.error);
+          this.ativar_spinner = false;
+        });
   }
 
   /*public async inputChange(files: FileList) {
@@ -46,18 +66,4 @@ export class PedidoComponent implements OnInit {
         alert("Erro");
       });
   }*/
-
-  public inputChange(files: FileList) {
-    this.arquivoSelecionado = files.item(0);
-    this.ativar_spinner = true;
-    this.pedidoServico.enviarArquivo(this.arquivoSelecionado)
-      .subscribe(nomeArquivo => {
-        this.pedido.nomeArquivo = nomeArquivo;
-        this.ativar_spinner = false;
-      },
-        e => {
-          console.log(e.error);
-          this.ativar_spinner = false;
-        });
-  }
 }

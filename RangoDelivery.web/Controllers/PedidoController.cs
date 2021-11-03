@@ -45,6 +45,11 @@ namespace RangoDelivery.web.Controllers
         {
             try
             {
+                pedido.Validate();
+                if (!pedido.EhValido)
+                {
+                    return BadRequest(pedido.ObterMensagensValidacao());
+                }
                 _pedidoRepositorio.Adicionar(pedido);
                 return Created("api/pedido", pedido);
             }
