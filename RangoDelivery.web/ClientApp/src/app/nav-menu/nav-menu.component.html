@@ -28,6 +28,12 @@
           <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="!clienteLogado() && !empresaLogado()">
             <a class="nav-link text-dark" [routerLink]="['/cadastrar']">Cadastrar</a>
           </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="!clienteLogado() && !empresaLogado()">
+            <a class="nav-link text-dark" [routerLink]="['/pesquisar-pedido']">Pesquisa pedidos</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="!clienteLogado() && !empresaLogado()">
+            <a class="nav-link text-dark" [routerLink]="['/cadastro-pedido']">Cadastra pedido</a>
+          </li>
           <li class="nav-item dropdown" *ngIf="clienteLogado()">
             <a class="nav-link text-dark dropdown-toggle" role="button" aria-haspopup="true" href="#"
                aria-expanded="false" id="linkMenu" data-toggle="dropdown">{{cliente.nome}}</a>
@@ -36,8 +42,8 @@
             </ul>
           </li>
           <!--<li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="clienteLogado() || empresaLogado()">
-            <a class="nav-item nav-link text-dark" [routerLink]='["/sair"]' (click)="sair()">Sair</a>
-          </li>-->
+    <a class="nav-item nav-link text-dark" [routerLink]='["/sair"]' (click)="sair()">Sair</a>
+  </li>-->
         </ul>
       </div>
     </div>

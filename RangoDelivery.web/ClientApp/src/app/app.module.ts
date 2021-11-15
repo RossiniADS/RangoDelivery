@@ -16,6 +16,7 @@ import { EmpresaServico } from './serviços/empresa/empresa.servico';
 import { CadastroClienteComponent } from './Cadastro/cadastro.component';
 import { PedidoServico } from './serviços/Pedido/pedido.servico';
 import { PedidoComponent } from './Pedido/pedido.component';
+import { PesquisaPedidoComponent } from './Pedido/pesquisa/pesquisa.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PedidoComponent } from './Pedido/pedido.component';
     LoginComponent,
     CadastroClienteComponent,
     LoginEmpresaComponent,
-    PedidoComponent
+    PedidoComponent,
+    PesquisaPedidoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,7 +40,8 @@ import { PedidoComponent } from './Pedido/pedido.component';
       { path: 'entrar', component: LoginComponent },
       { path: "cadastrar", component: CadastroClienteComponent },
       { path: "login-empresa", component: LoginEmpresaComponent },
-      { path: "cadastro-pedido", component: PedidoComponent }
+      { path: "cadastro-pedido", component: PedidoComponent },
+      { path: "pesquisar-pedido", component: PesquisaPedidoComponent }
     ])
   ],
   providers: [ClienteServico, EmpresaServico, PedidoServico],

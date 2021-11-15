@@ -15,6 +15,7 @@ namespace RangoDelivery.Dominio.Entidades
         public string Caracteristica { get; set; }
         public int Quantidade { get; set; }
         public decimal Valor { get; set; }
+        public string NomeArquivo { get; set; }
         public int EmpresaId { get; set; }
         public virtual Empresa Empresa { get; set; }
         public int CategoriaId { get; set; }
@@ -24,7 +25,14 @@ namespace RangoDelivery.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(Nome))
+            {
+                AdicionarCritica("Nome do pedido não foi informado");
+            }
+            if (string.IsNullOrEmpty(Descricao))
+            {
+                AdicionarCritica("Descrição não foi informado");
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { Pedido } from "../model/pedido";
 import { PedidoServico } from "../serviços/Pedido/pedido.servico"; 
 
@@ -13,7 +14,7 @@ export class PedidoComponent implements OnInit {
   public ativar_spinner: boolean;
   public mensagem: string;
 
-  constructor(private pedidoServico: PedidoServico) {
+  constructor(private pedidoServico: PedidoServico, private router: Router) {
 
   }
 
@@ -27,8 +28,8 @@ export class PedidoComponent implements OnInit {
       .subscribe(
         pedidoJson => {
           console.log(pedidoJson);
-          alert("Foi")
           this.ativar_spinner = false;
+          this.router.navigate(['pesquisar-pedido']);
         },
         e => {
           console.log(e.error);

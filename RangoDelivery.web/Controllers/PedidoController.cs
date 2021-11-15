@@ -32,7 +32,7 @@ namespace RangoDelivery.web.Controllers
         {
             try
             {
-                return Ok(_pedidoRepositorio.ObterTodos());
+                return Json(_pedidoRepositorio.ObterTodos());
             }
             catch (Exception ex)
             {
