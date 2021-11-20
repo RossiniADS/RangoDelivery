@@ -30,4 +30,30 @@ export class PesquisaPedidoComponent implements OnInit {
   public adicionarPedido() {
     this.router.navigate(['/pedido'])
   }
+
+  public deletarPedido(pedido: Pedido) {
+    var retorno = confirm("Deseja realmente deletar o pedido selecionado?");
+    if (retorno == true) {
+      this.pedidoServico.deletar(pedido).subscribe(
+        pedidos => {
+          this.pedidos = pedidos;
+        }, e => {
+          console.log(e.errors);
+        });
+    }
+  }
+  public editarPedido(pedido: Pedido) {
+    sessionStorage.setItem('pedidoSession', JSON.stringify(pedido));
+    this.router.navigate(['/pedido']);
+
+    var retorno = confirm("Deseja realmente deletar o pedido selecionado?");
+    if (retorno == true) {
+      this.pedidoServico.deletar(pedido).subscribe(
+        pedidos => {
+          this.pedidos = pedidos;
+        }, e => {
+          console.log(e.errors);
+        });
+    }
+  }
 }

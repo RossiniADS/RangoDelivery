@@ -50,7 +50,14 @@ namespace RangoDelivery.web.Controllers
                 {
                     return BadRequest(pedido.ObterMensagensValidacao());
                 }
-                _pedidoRepositorio.Adicionar(pedido);
+                if (pedido.Id > 0)
+                {
+                    _pedidoRepositorio.Atualizar(pedido);
+                }
+                else
+                {
+                    _pedidoRepositorio.Adicionar(pedido);
+                }
                 return Created("api/pedido", pedido);
             }
             catch (Exception ex)
@@ -58,6 +65,21 @@ namespace RangoDelivery.web.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+        [HttpPost("Deletar")]
+        public IActionResult Deletar([FromBody] Pedido pedido)
+        {
+            try
+            {
+                // pedido recebido do FromBody, deve ter a propriedade ID > 0
+                _pedidoRepositorio.Remover(pedido);
+                return Json(_pedidoRepositorio.ObterTodos());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
         [HttpPost("enviarArquivo")]
         public IActionResult EnviarArquivo()
         {

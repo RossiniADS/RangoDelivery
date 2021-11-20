@@ -33,9 +33,9 @@ export class PedidoServico implements OnInit {
 
     return this.http.post<Pedido>(this._baseUrl + "api/pedido/salvar", JSON.stringify(pedido), { headers: this.headers });
   }
-  public deletar(pedido: Pedido): Observable<Pedido> {
+  public deletar(pedido: Pedido): Observable<Pedido[]> {
 
-    return this.http.post<Pedido>(this._baseUrl + "api/pedido/deletar", JSON.stringify(pedido), { headers: this.headers });
+    return this.http.post<Pedido[]>(this._baseUrl + "api/pedido/deletar", JSON.stringify(pedido), { headers: this.headers });
   }
   public obterTodosPedidos(): Observable<Pedido[]> {
     return this.http.get<Pedido[]>(this._baseUrl + "api/pedido");

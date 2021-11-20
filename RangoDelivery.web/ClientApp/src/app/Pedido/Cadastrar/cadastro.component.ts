@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { Pedido } from "../model/pedido";
-import { PedidoServico } from "../serviços/Pedido/pedido.servico"; 
+import { Pedido } from "../../model/pedido";
+import { PedidoServico } from "../../serviços/Pedido/pedido.servico";
 
 @Component({
   selector: "app-pedido",
-  templateUrl: "./pedido.component.html",
-  styleUrls: ["./pedido.component.css"] //[] pq é como se fosse lista
+  templateUrl: "./cadastro.component.html",
+  styleUrls: ["./cadastro.component.css"] //[] pq é como se fosse lista
 })
 export class PedidoComponent implements OnInit {
   public pedido: Pedido
@@ -19,7 +19,12 @@ export class PedidoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pedido = new Pedido();
+    var pedidoSession = sessionStorage.get('pedidoSession');
+    if (pedidoSession) {
+      this.pedido = JSON.parse(pedidoSession);
+    } else {
+      this.pedido = new Pedido();
+    }
   }
 
   public cadastrar() {

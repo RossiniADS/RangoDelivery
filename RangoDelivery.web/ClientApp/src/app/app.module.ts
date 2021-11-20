@@ -15,7 +15,7 @@ import { ClienteServico } from './serviços/cliente/cliente.servico';
 import { EmpresaServico } from './serviços/empresa/empresa.servico';
 import { CadastroClienteComponent } from './Cadastro/cadastro.component';
 import { PedidoServico } from './serviços/Pedido/pedido.servico';
-import { PedidoComponent } from './Pedido/pedido.component';
+import { PedidoComponent } from './Pedido/cadastrar/cadastro.component';
 import { PesquisaPedidoComponent } from './Pedido/pesquisa/pesquisa.component';
 
 @NgModule({

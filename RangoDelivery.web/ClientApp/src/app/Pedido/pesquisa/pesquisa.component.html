@@ -6,8 +6,8 @@
 
 <button class="btn btn-primary mb-2" (click)="adicionarPedido()">Adicionar Pedido</button>
 
-<table class="table table-hover" *ngIf="Pedidos">
-  <tread>
+<table class="table table-hover" *ngIf="pedidos">
+  <thead>
     <tr>
       <th>Nome</th>
       <th>Descrição</th>
@@ -16,15 +16,15 @@
       <th></th>
       <th></th>
     </tr>
-  </tread>
+  </thead>
   <tbody>
     <tr *ngFor="let p of pedidos">
       <td>{{p.nome}}</td>
       <td style="width:50%">{{p.descricao}}</td>
       <td style="width:10%">{{p.preco}}</td>
       <td style="width:20%; height:10%"><img src="../../../../../arquivos/{{p.nomeArquivo}}" style="width:40%; height:10%" /></td>
-      <td><a href="#">Editar</a></td>
-      <td><a href="#">Deletar</a></td>
+      <td><button class="btn btn-succes btn-sm" (click)="editarPedido(p)">Editar</button></td>
+      <td><button class="btn btn-succes btn-sm" (click)="deletarPedido(p)">Deletar</button></td>
     </tr>
   </tbody>
 </table>
