@@ -25,6 +25,14 @@ export class LojaCarrinho {
     }
   }
   public removerPedido(pedido: Pedido) {
-
+    var pedidoLocalStorage = localStorage.getItem("pedidoLocalStorage");
+    if (pedidoLocalStorage) {
+      this.pedidos = JSON.parse(pedidoLocalStorage);
+      this.pedidos = this.pedidos.filter(p => p.id != pedido.id);
+      localStorage.setItem("pedidoLocalStorage", JSON.stringify(this.pedidos));
+    }
+  }
+  public atualizar(pedidos: Pedido[]) {
+    localStorage.setItem("pedidoLocalStorage", JSON.stringify(pedidos));
   }
 }

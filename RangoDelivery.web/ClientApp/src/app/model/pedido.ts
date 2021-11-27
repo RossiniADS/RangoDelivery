@@ -3,8 +3,10 @@ export class Pedido {
   nome: string;
   tipo: string;
   descricao: string;
- //caracteristica: string;
-//quantidade: number;
+  //caracteristica: string;
+  quantidade: number;
   valor: number
   nomeArquivo: string;
+  valorOriginal: number;
+  
 }
