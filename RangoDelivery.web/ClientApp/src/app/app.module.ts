@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { TruncateModule } from 'ng2-truncate';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -17,6 +18,9 @@ import { CadastroClienteComponent } from './Cadastro/cadastro.component';
 import { PedidoServico } from './serviços/Pedido/pedido.servico';
 import { PedidoComponent } from './Pedido/cadastrar/cadastro.component';
 import { PesquisaPedidoComponent } from './Pedido/pesquisa/pesquisa.component';
+import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
+import { LojaPedidoComponent } from './loja/Pedido/loja.pedido.component';
+import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +32,16 @@ import { PesquisaPedidoComponent } from './Pedido/pesquisa/pesquisa.component';
     CadastroClienteComponent,
     LoginEmpresaComponent,
     PedidoComponent,
-    PesquisaPedidoComponent
+    PesquisaPedidoComponent,
+    LojaPesquisaComponent,
+    LojaPedidoComponent,
+    LojaEfetivarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    TruncateModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'cliente', component: ClienteComponent },
@@ -41,7 +49,10 @@ import { PesquisaPedidoComponent } from './Pedido/pesquisa/pesquisa.component';
       { path: "cadastrar", component: CadastroClienteComponent },
       { path: "login-empresa", component: LoginEmpresaComponent },
       { path: "cadastro-pedido", component: PedidoComponent },
-      { path: "pesquisar-pedido", component: PesquisaPedidoComponent }
+      { path: "pesquisar-pedido", component: PesquisaPedidoComponent },
+      { path: "loja-pedido", component: LojaPedidoComponent },
+      { path: "loja-efetivar", component: LojaEfetivarComponent }
+
     ])
   ],
   providers: [ClienteServico, EmpresaServico, PedidoServico],

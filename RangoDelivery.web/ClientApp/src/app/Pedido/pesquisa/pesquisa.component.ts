@@ -13,7 +13,7 @@ export class PesquisaPedidoComponent implements OnInit {
   public pedidos: Pedido[];
 
   ngOnInit(): void {
-    throw new Error("Method not implemented.");
+
   }
 
   constructor(private pedidoServico: PedidoServico, private router: Router) {
@@ -28,6 +28,7 @@ export class PesquisaPedidoComponent implements OnInit {
   }
 
   public adicionarPedido() {
+    sessionStorage.setItem('pedidoSession', "");
     this.router.navigate(['/pedido'])
   }
 

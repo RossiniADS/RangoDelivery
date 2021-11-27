@@ -29,11 +29,15 @@
        }"
        [(ngModel)]="pedido.descricao"
        #descricao="ngModel"
-       required />
+       required
+       minlength ="50"/>
 
 <div class="invalid-feedback mb-2" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)">
   <div *ngIf="descricao.errors.required">
     A descrição é de preenchimento obrigatório!
+  </div>
+  <div *ngIf="descricao.errors.minlength">
+    O campo descrição deve ter no mínimo 50 caracteres!
   </div>
 </div>
 

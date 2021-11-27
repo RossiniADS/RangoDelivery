@@ -23,15 +23,11 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
-    <Compile Remove="ClientApp\src\app\NovaPasta\**" />
     <Compile Remove="ClientApp\src\app\serviços\usuario\**" />
     <Content Remove="$(SpaRoot)**" />
-    <Content Remove="ClientApp\src\app\NovaPasta\**" />
     <Content Remove="ClientApp\src\app\serviços\usuario\**" />
-    <EmbeddedResource Remove="ClientApp\src\app\NovaPasta\**" />
     <EmbeddedResource Remove="ClientApp\src\app\serviços\usuario\**" />
     <None Remove="$(SpaRoot)**" />
-    <None Remove="ClientApp\src\app\NovaPasta\**" />
     <None Remove="ClientApp\src\app\serviços\usuario\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
