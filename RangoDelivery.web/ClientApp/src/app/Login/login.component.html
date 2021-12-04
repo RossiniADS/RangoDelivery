@@ -10,7 +10,7 @@
             'is-invalid':email.invalid && (email.dirty || email.touched),
             'is-valid':email.valid && (email.dirty || email.touched)
            }"
-           placeholder="Email address" [(ngModel)]="cliente.email"
+           placeholder="Email" [(ngModel)]="cliente.email"
            #email="ngModel" email required />
 
     <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
@@ -28,7 +28,7 @@
             'is-invalid':senha.invalid && (senha.dirty || senha.touched),
             'is-valid':senha.valid && (senha.dirty || senha.touched)
            }"
-           placeholder="Password" [(ngModel)]="cliente.senha"
+           placeholder="Senha" [(ngModel)]="cliente.senha"
            #senha="ngModel" required />
 
     <div class="invalid-feedback" *ngIf="senha.invalid && (senha.dirty || senha.touched)">

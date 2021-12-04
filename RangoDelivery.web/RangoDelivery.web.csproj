@@ -33,7 +33,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\model\bairro.ts" />
+    <None Remove="ClientApp\src\app\model\cidade.ts" />
     <None Remove="ClientApp\src\app\model\cliente.ts" />
+    <None Remove="ClientApp\src\app\model\Cliente_has_endereco.ts" />
+    <None Remove="ClientApp\src\app\model\Endereco.ts" />
+    <None Remove="ClientApp\src\app\model\estado.ts" />
+    <None Remove="ClientApp\src\app\model\venda.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +47,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\model\cidade.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\estado.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\Endereco.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\bairro.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\cliente_has_endereco.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\venda.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\model\cliente.ts" />
   </ItemGroup>
 
@@ -53,6 +65,102 @@
   <ItemGroup>
     <Folder Include="ClientApp\src\assets\img\" />
     <Folder Include="wwwroot\arquivos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %282%29 - Cópia %282%29 - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (2) - Cópia (2).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %282%29 - Cópia %282%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (2).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %282%29 - Cópia %283%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (2).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %282%29 - Cópia - Cópia %282%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (2) - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %282%29 - Cópia - Cópia - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (2) - Cópia - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %282%29 - Cópia - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (2) - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %282%29 - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (2).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %282%29.js.map">
+      <DependentUpon>Cliente_has_endereco.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %283%29 - Cópia %282%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (3).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %283%29 - Cópia - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (3) - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %283%29 - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (3).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %283%29.js.map">
+      <DependentUpon>Cliente_has_endereco.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %284%29 - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia (4).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %284%29.js.map">
+      <DependentUpon>Cliente_has_endereco.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia %285%29.js.map">
+      <DependentUpon>Cliente_has_endereco.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia %282%29 - Cópia %282%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia (2).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia %282%29 - Cópia - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia (2) - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia %282%29 - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia (2).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia %282%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia %283%29 - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia (3).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia %283%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia %284%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia - Cópia %282%29 - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia - Cópia (2).js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia - Cópia %282%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia - Cópia %283%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia - Cópia - Cópia %282%29.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia - Cópia - Cópia - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia - Cópia - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia - Cópia - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco - Cópia.js.map</DependentUpon>
+    </None>
+    <None Update="ClientApp\src\app\model\Cliente_has_endereco - Cópia.js.map">
+      <DependentUpon>Cliente_has_endereco.js.map</DependentUpon>
+    </None>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

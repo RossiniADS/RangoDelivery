@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { Pedido } from "../../model/pedido";
-import { PedidoServico } from "../../serviços/Pedido/pedido.servico";
+import { venda } from "../../model/venda";
+import { ClienteServico } from "../../serviços/cliente/cliente.servico";
 import { LojaCarrinho } from "../carrinho/loja.carrinho.component";
 
 @Component({
@@ -19,7 +20,7 @@ export class LojaEfetivarComponent implements OnInit {
     this.atualizarTotal();
   }
 
-  constructor(private pedidoServico: PedidoServico) {
+  constructor(private clienteServico: ClienteServico) {
 
   }
 
@@ -47,6 +48,13 @@ export class LojaEfetivarComponent implements OnInit {
     // pedido = variavel que aponta para o pedido, ela da acesso a cada um dos pedidos que existe na lista
     // 0 = a partir de qual index irá fazer a leitura, logo 0 significa o primeiro da lista em diante
     this.total = this.pedidos.reduce((acc, pedido) => acc + pedido.valor, 0);
-
   }
+  public efetivarCompra() {
+    //let venda = new Venda();
+  }
+  //public criarVenda(): venda {
+    //let venda = new Venda();
+    //venda.u
+  //}
+
 }

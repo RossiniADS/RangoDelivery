@@ -27,6 +27,9 @@ export class ClienteServico {
   public cliente_autenticado(): boolean {
     return this._cliente != null && this._cliente.email != "" && this._cliente.senha != "";
   }
+  public cliente_administrador(): boolean {
+    return this.cliente_autenticado() && this.cliente.ehAdministrador;
+  }
 
   public limpar_sessao() {
     sessionStorage.setItem("cliente-autenticado", "");
@@ -54,5 +57,9 @@ export class ClienteServico {
   public cadastrarCliente(cliente: Cliente): Observable<Cliente> {
 
     return this.http.post<Cliente>(this.baseURL + "api/cliente", JSON.stringify(cliente), { headers: this.headers });
+  }
+  public atualizarCliente(cliente: Cliente): Observable<Cliente> {
+
+    return this.http.post<Cliente>(this.baseURL + "api/cliente/AtualizarCliente", JSON.stringify(cliente), { headers: this.headers });
   }
 }

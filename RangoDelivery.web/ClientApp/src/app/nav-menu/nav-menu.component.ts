@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LojaCarrinho } from '../loja/carrinho/loja.carrinho.component';
 import { ClienteServico } from '../serviços/cliente/cliente.servico';
 import { EmpresaServico } from '../serviços/empresa/empresa.servico';
 
@@ -8,12 +9,16 @@ import { EmpresaServico } from '../serviços/empresa/empresa.servico';
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.css']
 })
-export class NavMenuComponent {
+export class NavMenuComponent implements OnInit {
   isExpanded = false;
+  public carrinhoCompras: LojaCarrinho;
 
   constructor(private router: Router, private clienteServico: ClienteServico,
     private empresaServico: EmpresaServico) {
 
+  }
+  ngOnInit(): void {
+    this.carrinhoCompras = new LojaCarrinho();
   }
 
   collapse() {
@@ -26,6 +31,9 @@ export class NavMenuComponent {
 
   public clienteLogado(): boolean {
     return this.clienteServico.cliente_autenticado();
+  }
+  public cliente_administrador(): boolean {
+    return this.clienteServico.cliente_administrador();
   }
 
   public empresaLogado(): boolean {
@@ -42,5 +50,9 @@ export class NavMenuComponent {
   }
   get cliente() {
     return this.clienteServico.cliente;
+  }
+
+  public hasItemCarrinhoCompras(): boolean {
+    return this.carrinhoCompras.hasItemCarrinhoCompras();
   }
 }

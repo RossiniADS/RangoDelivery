@@ -23,6 +23,7 @@ export class LojaCarrinho {
     if (pedidoLocalStorage) {
       return JSON.parse(pedidoLocalStorage);
     }
+    return this.pedidos;
   }
   public removerPedido(pedido: Pedido) {
     var pedidoLocalStorage = localStorage.getItem("pedidoLocalStorage");
@@ -34,5 +35,9 @@ export class LojaCarrinho {
   }
   public atualizar(pedidos: Pedido[]) {
     localStorage.setItem("pedidoLocalStorage", JSON.stringify(pedidos));
+  }
+  public hasItemCarrinhoCompras(): boolean {
+    var itens = this.obterPedidos();
+    return (itens.length > 0);
   }
 }

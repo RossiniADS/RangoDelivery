@@ -8,7 +8,6 @@ import { TruncateModule } from 'ng2-truncate';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { ClienteComponent } from './Cliente/cliente.component';
 import { LoginComponent } from './Login/login.component';
 import { LoginEmpresaComponent } from './LoginEmpresa/login.empresa.component';
 import { GuardaRotas } from './autorizacao/guarda.rotas';
@@ -21,13 +20,13 @@ import { PesquisaPedidoComponent } from './Pedido/pesquisa/pesquisa.component';
 import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
 import { LojaPedidoComponent } from './loja/Pedido/loja.pedido.component';
 import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
+import { MeusDadosComponent } from './Cliente/meusDados/meusDados.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    ClienteComponent,
     LoginComponent,
     CadastroClienteComponent,
     LoginEmpresaComponent,
@@ -35,7 +34,8 @@ import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
     PesquisaPedidoComponent,
     LojaPesquisaComponent,
     LojaPedidoComponent,
-    LojaEfetivarComponent
+    LojaEfetivarComponent,
+    MeusDadosComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -44,14 +44,15 @@ import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
     TruncateModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'cliente', component: ClienteComponent },
       { path: 'entrar', component: LoginComponent },
       { path: "cadastrar", component: CadastroClienteComponent },
       { path: "login-empresa", component: LoginEmpresaComponent },
       { path: "cadastro-pedido", component: PedidoComponent },
-      { path: "pesquisar-pedido", component: PesquisaPedidoComponent },
+      { path: "pesquisar-pedido", component: PesquisaPedidoComponent, canActivate: [GuardaRotas] },
       { path: "loja-pedido", component: LojaPedidoComponent },
-      { path: "loja-efetivar", component: LojaEfetivarComponent }
+      { path: "loja-efetivar", component: LojaEfetivarComponent, canActivate: [GuardaRotas] },
+      { path: "cliente-dados", component: MeusDadosComponent },
+
 
     ])
   ],

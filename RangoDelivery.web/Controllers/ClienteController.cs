@@ -50,6 +50,20 @@ namespace RangoDelivery.web.Controllers
             }
         }
 
+        [HttpPost("AtualizarCliente")]
+        public IActionResult AtualizarCliente([FromBody] Cliente cliente)
+        {
+            try
+            {
+                _clienteRepositorio.Atualizar(cliente);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
         [HttpPost]
         public IActionResult Post([FromBody] Cliente cliente)
         {

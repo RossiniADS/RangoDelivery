@@ -1,0 +1,169 @@
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10 col-10 text-center">
+      <div class="card">
+        <h5 class="text-center mb-4">Meus Dados</h5>
+        <form class="form-card">
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Nome
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="text" id="name"
+                     name="name" class="form-control"
+                     [ngClass]="{
+                        'is-invalid':name.invalid && (name.dirty || name.touched),
+                        'is-valid':name.valid && (name.dirty || name.touched)
+                     }"
+                     [(ngModel)]="cliente.nome"
+                     #name="ngModel" required />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Sobrenome
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="text" id="sobrenome"
+                     name="sobrenome" class="form-control"
+                     [ngClass]="{
+                      'is-invalid':sobrenome.invalid && (sobrenome.dirty || sobrenome.touched),
+                        'is-valid':sobrenome.valid && (sobrenome.dirty || sobrenome.touched)
+                     }"
+                     [(ngModel)]="cliente.sobrenome"
+                     #sobrenome="ngModel" required />
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Email
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="email" id="email"
+                     name="email" class="form-control"
+                     [ngClass]="{
+                        'is-invalid':email.invalid && (email.dirty || email.touched),
+                        'is-valid':email.valid && (email.dirty || email.touched)
+                          }"
+                     [(ngModel)]="cliente.email"
+                     #email="ngModel" email required />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Celular
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="text" minlength="10" maxlength="10" name="celular" class="form-control"
+                     [ngClass]="{
+                         'is-invalid':celular.invalid && (celular.dirty || celular.touched),
+                         'is-valid':celular.valid && (celular.dirty || celular.touched)
+                         }"
+                     [(ngModel)]="cliente.celular"
+                     #celular="ngModel" required />
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Data de nascimento
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="date" id="data"
+                     name="data" class="form-control"
+                     [ngClass]="{
+                         'is-invalid':data.invalid && (data.dirty || data.touched),
+                         'is-valid':data.valid && (data.dirty || data.touched)
+                         }"
+                     [(ngModel)]="cliente.dataNascimento"
+                     #data="ngModel" required />
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Sexo
+                <span class="text-danger"> *</span>
+              </label>
+              <div class="row justify-content-between text-left">
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label">
+                    <input type="radio" id="mas" name="sex" value="M" 
+                           [(ngModel)]="cliente.sexo"
+                           #sex="ngModel" checked />
+                    Masculino
+                  </label>
+                </div>
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label">
+                    <input type="radio" id="fem" name="sex" value="F"
+                           [(ngModel)]="cliente.sexo"
+                           #sex="ngModel" />
+                    Feminino
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h5 class="text-center mb-4">Meu endereço</h5>
+          <hr />
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                CEP
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="text" id="job" name="job">
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Cidade
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="text" id="sex" name="sex">
+            </div>
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Estado
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="text" id="job" name="job">
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Bairro
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="text" id="sex" name="sex">
+            </div>
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Rua
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="text" id="job" name="job">
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">
+                Numero
+                <span class="text-danger"> *</span>
+              </label>
+              <input type="text" id="sex" name="sex">
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="form-group col-sm-6">
+              <button type="submit" class="btn-block btn-primary" (click)="salvarDados()">Salvar dados</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

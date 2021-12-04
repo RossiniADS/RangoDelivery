@@ -1,3 +1,5 @@
+import { Cliente_has_endereco } from "./Cliente_has_endereco";
+
 export class Cliente {
   id: number;
   nome: string;
@@ -6,5 +8,12 @@ export class Cliente {
   sexo: string;
   celular: string;
   dataNascimento: Date;
-  urlFoto: string
+  urlFoto: string;
+  ehAdministrador: boolean;
+
+  public cliente_has_endereco: Cliente_has_endereco[];
+
+  constructor() {
+    this.cliente_has_endereco = [];
+  }
 }
